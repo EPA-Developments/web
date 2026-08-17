@@ -90,7 +90,7 @@ document.documentElement.setAttribute("data-theme",t);}})();
         <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
-      <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
+      <a class="btn btn-solid" data-cta="header" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
       <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -140,6 +140,7 @@ document.documentElement.setAttribute("data-theme",t);}})();
         <h4>Recursos</h4>
         <ul>
           <li><a href="{up}menopausia.html">Menopausia y corazón</a></li>
+          <li><a href="{up}embarazo.html">Embarazo y corazón</a></li>
           <li><a href="{up}bienestar_con_datos.html">Bienestar con datos</a></li>
           <li><a href="{up}por_que_elegirnos.html">Por qué elegirnos</a></li>
           <li><a href="{up}modelo_de_atencion.html">Modelo de atención</a></li>
@@ -192,13 +193,12 @@ document.documentElement.setAttribute("data-theme",t);}})();
 </a>
 
 <script src="{up}assets/js/epa.js" defer></script>
+
+<!-- Analítica. epa-analytics.js define Consent Mode e instrumenta el embudo;
+     debe cargar ANTES del tag de Google para que el consentimiento por
+     defecto esté aplicado cuando gtag arranque. -->
+<script src="{up}assets/js/epa-analytics.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J3NZ57F9D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', 'G-5J3NZ57F9D');
-</script>
 </body>
 </html>
 """
@@ -235,7 +235,7 @@ CTA = """<section class="band band-ink cta-fin">
     <h2>Lo que no se conoce, no se previene.</h2>
     <p class="lede">La evaluación inicial es gratuita, toma diez minutos y devuelve tu punto de partida con el marco Life's Essential 8.</p>
     <div class="row">
-      <a class="btn btn-signal" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
+      <a class="btn btn-signal" data-cta="cierre" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.3);color:#fff" href="https://calendar.app.google/NeygNDb51VM6RLqb8">Agendar una demo</a>
     </div>
   </div>
@@ -309,12 +309,13 @@ PAGES["bienestar_con_datos.html"] = dict(
     </div>
 
     <div class="rv">
-      <div class="idx-bar" role="img" aria-label="Ponderación: Equilibrio 38 %, Precisión 32 %, Armonía 30 %.">
-        <div class="idx-seg seg-e">Equilibrio <span>38 %</span></div>
-        <div class="idx-seg seg-p">Precisión <span>32 %</span></div>
-        <div class="idx-seg seg-a">Armonía <span>30 %</span></div>
+      <div class="idx-bar" role="img" aria-label="Ponderación: Equilibrio 36 %, Precisión 33 %, Armonía 31 %.">
+        <div class="idx-seg seg-e">Equilibrio <span>36 %</span></div>
+        <div class="idx-seg seg-p">Precisión <span>33 %</span></div>
+        <div class="idx-seg seg-a">Armonía <span>31 %</span></div>
       </div>
-      <p class="idx-src">Derivadas del modelo de determinantes — comportamiento 38 % → E · genética 21 % + cuidado médico 11 % → P · social 23 % + ambiente 7 % → A</p>
+      <p class="idx-src">Derivadas del modelo de determinantes — comportamiento 36 % → E · genética 22 % + cuidado médico 11 % → P · social 24 % + ambiente 7 % → A<br />
+      Choi, E. &amp; Sonin, J. (2019). <em>Determinants of Health.</em> GoInvo. CC BY 4.0 · metodología v3, nov 2018.</p>
     </div>
 
     <div class="tbl-wrap rv">
@@ -345,17 +346,19 @@ PAGES["bienestar_con_datos.html"] = dict(
     <div class="head rv">
       <p class="eyebrow">Metodología</p>
       <h2>De dónde salen los pesos</h2>
-      <p class="lede">Los porcentajes no son estimaciones internas. Surgen del promedio de siete
+      <p class="lede">Los porcentajes no son estimaciones internas. Surgen del promedio de
       fuentes primarias: OMS, NEJM, Health Affairs, Institute of Medicine, JAMA, DHHS y
       Universidad de Wisconsin.</p>
+      <p class="lede" style="font-size:.92rem;opacity:.78">Modelo de Choi, E. &amp; Sonin, J. (2019),
+      <em>Determinants of Health</em>, GoInvo, bajo licencia CC BY 4.0 · metodología v3, noviembre de 2018.</p>
     </div>
     <div class="cards rv">
-      <div class="card"><div class="kicker">38 %</div><h3>Comportamiento</h3><p>Nutrición, actividad física, sueño y gestión del estrés. Es el determinante de mayor peso y también el más modificable.</p></div>
-      <div class="card"><div class="kicker">23 %</div><h3>Social</h3><p>Situación familiar, acceso a recursos, apoyo comunitario e inequidades de género.</p></div>
-      <div class="card"><div class="kicker">21 %</div><h3>Genética</h3><p>Antecedentes familiares, riesgo predispuesto, tamizaje selectivo. Acá vive Lp(a).</p></div>
+      <div class="card"><div class="kicker">36 %</div><h3>Comportamiento individual</h3><p>Nutrición, actividad física, sueño y gestión del estrés. Es el determinante de mayor peso y también el más modificable.</p></div>
+      <div class="card"><div class="kicker">24 %</div><h3>Circunstancias sociales</h3><p>Situación familiar, acceso a recursos, apoyo comunitario e inequidades de género.</p></div>
+      <div class="card"><div class="kicker">22 %</div><h3>Genética y biología</h3><p>Antecedentes familiares, riesgo predispuesto, tamizaje selectivo. Acá vive Lp(a).</p></div>
       <div class="card"><div class="kicker">11 %</div><h3>Cuidado médico</h3><p>Evaluación cardiovascular, medicación cuando corresponde, seguimiento clínico.</p></div>
-      <div class="card"><div class="kicker">7 %</div><h3>Ambiente</h3><p>Acceso a espacios de actividad, seguridad comunitaria, calidad del aire.</p></div>
-      <div class="card"><div class="kicker">Nota</div><h3>Alineación, no identidad</h3><p>La correspondencia entre determinante y dimensión del índice es conceptual. Lo declaramos explícitamente en toda publicación.</p></div>
+      <div class="card"><div class="kicker">7 %</div><h3>Ambiente físico</h3><p>Acceso a espacios de actividad, seguridad comunitaria, calidad del aire.</p></div>
+      <div class="card"><div class="kicker">Nota</div><h3>Alineación, no identidad</h3><p>La correspondencia entre determinante y dimensión del índice es conceptual, no estricta. Lo declaramos en toda publicación, junto con la versión de metodología usada.</p></div>
     </div>
   </div>
 </section>
@@ -396,7 +399,7 @@ PAGES["por_que_elegirnos.html"] = dict(
       <table class="tbl">
         <thead><tr><th style="width:20%">Aspecto</th><th style="width:42%">EPA Bienestar IA</th><th>Aplicación de bienestar genérica</th></tr></thead>
         <tbody>
-          <tr><td><strong>Marco científico</strong></td><td class="yes">Life's Essential 8 (AHA 2022) + modelo de determinantes de salud de siete fuentes primarias</td><td class="no">Puntaje de salud propietario, sin publicación revisada por pares</td></tr>
+          <tr><td><strong>Marco científico</strong></td><td class="yes">Life's Essential 8 (AHA 2022) + modelo de determinantes de salud de GoInvo (CC BY 4.0), promediado de fuentes primarias</td><td class="no">Puntaje de salud propietario, sin publicación revisada por pares</td></tr>
           <tr><td><strong>Qué mide</strong></td><td class="yes">Niveles, variabilidad y outcomes reportados por la paciente</td><td class="no">Valores puntuales</td></tr>
           <tr><td><strong>Localización</strong></td><td class="yes">MEPA-Express, tamizaje dietario adaptado a Argentina; español rioplatense</td><td class="no">Traducción de una app global, sin contexto regional</td></tr>
           <tr><td><strong>Etapas de vida</strong></td><td class="yes">Cuatro grupos con lógica clínica propia (A/B/C/D)</td><td class="no">Segmentación por edad</td></tr>
@@ -576,7 +579,7 @@ PAGES["roadmap.html"] = dict(
       <li><span class="when">En curso</span><div><h3>Cohorte MAMA-LE8</h3><p>Estudio prospectivo en tres sitios de la Federación Argentina de Cardiología: Buenos Aires, Córdoba y Rosario. Fase I dirigida a mujeres de 45 a 65 años en CABA.</p></div></li>
       <li><span class="when">Q4 2026</span><div><h3>Consenso de contenido del Índice EPA</h3><p>Panel Delphi con el Comité de Enfermedades Cardiovasculares en la Mujer de FAC sobre subcomponentes y cortes de puntuación.</p></div></li>
       <li><span class="when">Q1 2027</span><div><h3>Consistencia interna y estructura factorial</h3><p>Análisis sobre el baseline de MAMA-LE8. Hipótesis previa: correlación moderada con LE8. Si fuera muy alta, el índice no aportaría información nueva y habría que rediseñarlo.</p></div></li>
-      <li><span class="when">Q2–Q3 2027</span><div><h3>Recalibración empírica de ponderaciones</h3><p>Si los pesos empíricos difieren de 38/32/30, adoptamos los empíricos y lo documentamos como versión 2.0 del índice.</p></div></li>
+      <li><span class="when">Q2–Q3 2027</span><div><h3>Recalibración empírica de ponderaciones</h3><p>Si los pesos empíricos difieren de 36/33/31, adoptamos los empíricos y lo documentamos como versión 2.0 del índice.</p></div></li>
       <li><span class="when">2029 +</span><div><h3>Validez predictiva</h3><p>Seguimiento longitudinal contra eventos cardiovasculares incidentes. Es la única etapa que habilita a reclamar valor pronóstico.</p></div></li>
     </ol>
   </div>
@@ -691,10 +694,10 @@ PAGES["integraciones.html"] = dict(
 # ═══════════════════════════════════════════════════════════════
 PAGES["engagement.html"] = dict(
     title="Experiencias y desafíos", active=None,
-    desc="Cómo diseñamos la adherencia: el determinante conductual pesa 38 %, y es el más modificable. Plan Bienestar 100 Días®, MEPA-Express y SBAE.",
+    desc="Cómo diseñamos la adherencia: el determinante conductual pesa 36 %, y es el más modificable. Plan Bienestar 100 Días®, MEPA-Express y SBAE.",
     body=phero(
         "Experiencias y desafíos", "Adherencia",
-        "El 38 % del resultado depende del comportamiento.",
+        "El 36 % del resultado depende del comportamiento.",
         "Es el determinante de mayor peso y también el único que una persona puede cambiar esta "
         "semana. Toda nuestra mecánica de adherencia se apoya en ese número.") + """
 <section class="band">
@@ -720,7 +723,7 @@ PAGES["engagement.html"] = dict(
       <div class="card"><div class="kicker">Sueño</div><h3>Regularidad antes que duración</h3><p>Trabajamos sobre la consistencia del horario, no sobre alcanzar ocho horas. La regularidad predice mejor los resultados.</p></div>
       <div class="card"><div class="kicker">Síntomas</div><h3>Menopause Rating Scale</h3><p>Once ítems en tres subescalas. Reportamos las subescalas por separado porque la distribución orienta la intervención.</p></div>
       <div class="card"><div class="kicker">Ánimo</div><h3>Seguimiento integrado</h3><p>Ánimo y ansiedad se miden con instrumentos validados y forman parte del índice, no de un módulo aparte.</p></div>
-      <div class="card"><div class="kicker">Social</div><h3>Comunidad</h3><p>El determinante social pesa 23 %. Los grupos de acompañamiento no son un extra: son una intervención sobre ese porcentaje.</p></div>
+      <div class="card"><div class="kicker">Social</div><h3>Comunidad</h3><p>El determinante social pesa 24 %. Los grupos de acompañamiento no son un extra: son una intervención sobre ese porcentaje.</p></div>
     </div>
   </div>
 </section>
@@ -893,7 +896,7 @@ PAGES["enlaces.html"] = dict(
   <div class="wrap">
     <div class="grp rv">
       <article class="grp-c"><div class="grp-l">A</div><div class="age">18 – 30</div><h3>Crecimiento y desarrollo</h3><p>Establecer hábitos cardiovasculares que duran toda la vida, durante la etapa académica y los primeros años profesionales.</p></article>
-      <article class="grp-c"><div class="grp-l">B</div><div class="age">28 – 44</div><h3>Maternidad planificada</h3><p>Preparación preconcepcional, seguimiento cardio-obstétrico y recuperación posparto.</p></article>
+      <a class="grp-c" href="embarazo.html" style="text-decoration:none;color:inherit"><div class="grp-l">B</div><div class="age">28 – 44</div><h3>Maternidad planificada</h3><p>Preparación preconcepcional, seguimiento cardio-obstétrico y recuperación posparto.</p><p style="font-family:var(--f-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-top:12px">Ver el programa →</p></a>
       <a class="grp-c is-focus" href="menopausia.html" style="text-decoration:none;color:inherit"><span class="tag">Foco 2026</span><div class="grp-l">C</div><div class="age">45 – 65</div><h3>Transición menopáusica</h3><p>El punto de inflexión cardiovascular. Donde el Índice EPA se aplica primero y donde se concentra la validación clínica.</p><p style="font-family:var(--f-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--plum);margin-top:12px">Ver el programa →</p></a>
       <article class="grp-c"><div class="grp-l">D</div><div class="age">65 +</div><h3>Envejecimiento activo</h3><p>Prevención secundaria, función física y comunidad. Abuelas, emprendedoras, viajeras.</p></article>
     </div>
@@ -908,6 +911,7 @@ PAGES["enlaces.html"] = dict(
       <a class="card" href="bienestar_con_datos.html#indice"><div class="kicker">Instrumento</div><h3>Índice EPA</h3><p>Equilibrio, Precisión y Armonía. Tres capas que Life's Essential 8 no tiene.</p></a>
       <a class="card" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php"><div class="kicker">Gratuito</div><h3>Evaluación inicial</h3><p>Diez minutos para conocer tu punto de partida con el marco Life's Essential 8. Sin costo.</p></a>
       <a class="card" href="programa/residentes/index.html"><div class="kicker">Profesionales</div><h3>Programa Residentes · FRICCAR</h3><p>Factores de riesgo cardiovascular de los residentes y cardiólogos argentinos. ¿Cómo se cuidan los que cuidan?</p></a>
+      <a class="card" href="embarazo.html"><div class="kicker">Grupo B</div><h3>Embarazo y corazón</h3><p>El embarazo es una prueba de esfuerzo cardiovascular. Antes, durante y después: qué medir y por qué importa décadas más tarde.</p></a>
       <div class="card"><div class="kicker">Investigación</div><h3>MAMA-LE8</h3><p>Cohorte prospectiva en tres sitios de la Federación Argentina de Cardiología. Es la base de validación del Índice EPA.</p></div>
       <div class="card"><div class="kicker">En desarrollo</div><h3>Cardio-oncología</h3><p>Módulo específico para pacientes oncológicas, junto al Hospital Municipal de Oncología Marie Curie.</p></div>
     </div>
@@ -1042,6 +1046,23 @@ _PRIV_SECS = [
     <p>La Agencia de Acceso a la Información Pública, en su carácter de órgano de control de la
     Ley 25.326, tiene la atribución de atender denuncias y reclamos por incumplimiento de las
     normas de protección de datos personales.</p>"""),
+    ("cookies", "Cookies y analítica", """
+    <p>Usamos cookies y herramientas de analítica —Google Analytics 4— para entender qué
+    contenidos resultan útiles y dónde se traba la navegación. Concretamente:</p>
+    <ul>
+      <li><strong>No hacemos publicidad ni remarketing.</strong> El almacenamiento publicitario
+      está deshabilitado por configuración, no solo por política: las señales de Google y la
+      personalización de anuncios están desactivadas en el código.</li>
+      <li><strong>No enviamos datos de salud a la analítica.</strong> Ninguna respuesta a un
+      cuestionario, ningún síntoma marcado y ninguna medición clínica sale hacia Google Analytics
+      ni hacia ningún tercero. Los datos clínicos viven exclusivamente en nuestra infraestructura
+      en Argentina.</li>
+      <li><strong>La dirección IP se anonimiza.</strong></li>
+      <li><strong>Podés desactivar la analítica</strong> desde el aviso que aparece en tu primera
+      visita. La preferencia queda guardada en tu navegador.</li>
+    </ul>
+    <p>También usamos almacenamiento local para recordar preferencias de visualización, como el
+    modo claro u oscuro. Ese dato no sale de tu dispositivo.</p>"""),
     ("menores", "Personas menores de edad", """
     <p>Las plataformas de EPA Bienestar IA están dirigidas a personas mayores de 18 años. No
     recogemos datos de personas menores de edad de forma deliberada. Si detectamos que se cargaron
@@ -1264,7 +1285,7 @@ _FAQ = [
       pedir que los borremos.
       <a href="politica_de_privacidad.html">Leer la política de privacidad completa →</a></p>"""),
     ("¿Esto me va a decir que baje de peso?", """
-      <p>No es el enfoque. El determinante de mayor peso es el comportamiento —38 %—, y trabajamos
+      <p>No es el enfoque. El determinante de mayor peso es el comportamiento —36 %—, y trabajamos
       sobre sueño, actividad, alimentación y estrés porque mueven marcadores cardiovasculares, no
       porque haya un número en la balanza que alcanzar.</p>
       <p>En antropometría miramos la trayectoria de la cintura, no el índice de masa corporal,
@@ -1290,7 +1311,7 @@ PAGES["menopausia.html"] = dict(
       tiempo, en silencio, cambia tu perfil cardiovascular. Esta es la etapa en que conviene mirarlo
       —y es la que casi nunca se mira.</p>
       <div class="hero-cta">
-        <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación · gratis</a>
+        <a class="btn btn-solid" data-cta="hero" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación · gratis</a>
         <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
       </div>
     </div>
@@ -1343,7 +1364,7 @@ PAGES["menopausia.html"] = dict(
         <p>Primera causa de muerte femenina, por encima de todos los cánceres combinados.</p>
       </div>
       <div class="gap-cell is-teal">
-        <div class="num">38 %</div>
+        <div class="num">36 %</div>
         <h3>Del resultado depende de lo que hacés</h3>
         <p>Es el factor de mayor peso y el único que podés empezar a mover esta semana.</p>
       </div>
@@ -1370,7 +1391,7 @@ PAGES["menopausia.html"] = dict(
     <div class="recog-out rv" id="recog-out" hidden>
       <p><b>Marcaste <span class="n" id="rc-n">0</span> de 10.</b> <span id="rc-msg"></span></p>
       <p style="margin-top:14px">
-        <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Empezar mi evaluación</a>
+        <a class="btn btn-solid" data-cta="reconocimiento" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Empezar mi evaluación</a>
       </p>
     </div>
   </div>
@@ -1454,7 +1475,7 @@ PAGES["menopausia.html"] = dict(
     <p class="lede">La evaluación inicial es gratuita, no pide datos de pago y te dice dónde estás
     parada hoy. Es el punto de partida de todo lo demás.</p>
     <div class="row">
-      <a class="btn btn-signal" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
+      <a class="btn btn-signal" data-cta="cierre" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.32);color:#fff" href="https://wa.me/5491169315830?text=Hola,%20quiero%20consultar%20sobre%20el%20Programa%20Mujer%20para%20menopausia.">Preguntar por WhatsApp</a>
     </div>
   </div>
@@ -1483,6 +1504,370 @@ PAGES["menopausia.html"] = dict(
       : "Es un conjunto que merece una mirada cardiovascular ordenada. Empezá por la evaluación y, si hace falta, te conectamos con un profesional.";
   }
   boxes.forEach(function (b) { b.addEventListener("change", upd); });
+})();
+</script>
+""")
+
+
+# ═══════════════════════════════════════════════════════════════
+# 14 · LANDING GRUPO B — embarazo y corazón (Corazón de Mamá)
+# ═══════════════════════════════════════════════════════════════
+_APO = [
+    ("Preeclampsia",
+     "Aproximadamente el doble de riesgo cardiovascular a lo largo de la vida, y un riesgo "
+     "particularmente elevado de insuficiencia cardíaca. Justifica seguimiento cardiológico "
+     "aunque la presión se haya normalizado."),
+    ("Hipertensión gestacional",
+     "Mayor probabilidad de desarrollar hipertensión crónica en los años siguientes. Conviene "
+     "control de presión anual desde el posparto, no recién a los cincuenta."),
+    ("Diabetes gestacional",
+     "Riesgo aumentado de diabetes tipo 2 y de enfermedad cardiovascular. Se recomienda "
+     "reevaluación metabólica después del parto y de forma periódica."),
+    ("Parto prematuro",
+     "Se asocia a mayor riesgo cardiovascular materno posterior, con independencia de si hubo "
+     "hipertensión durante el embarazo."),
+    ("Bajo peso para la edad gestacional",
+     "También se asocia a un perfil de riesgo cardiovascular materno menos favorable a largo plazo."),
+    ("Cardiomiopatía periparto",
+     "Requiere seguimiento cardiológico específico y condiciona la planificación de embarazos "
+     "posteriores. Es una indicación clara de consulta especializada."),
+]
+_APO_ROWS = "\n".join(
+    f'      <div class="apo-row"><div class="apo-ev">{e}</div><div class="apo-rk">{r}</div></div>'
+    for e, r in _APO)
+
+_FAQ_B = [
+    ("¿Esto es un servicio de fertilidad?", """
+      <p>No. No tratamos infertilidad, no hacemos seguimiento de ovulación ni acompañamos
+      tratamientos de reproducción asistida. Nuestro campo es la <strong>salud cardiovascular</strong>
+      de la mujer, y el embarazo nos interesa porque es el momento en que el sistema cardiovascular
+      se pone a prueba y revela información que sirve para el resto de la vida.</p>"""),
+    ("Estoy embarazada ahora. ¿Puedo empezar igual?", """
+      <p>Sí. El seguimiento durante el embarazo es compatible con tu control obstétrico y está
+      pensado para complementarlo, no para superponerse. Lo que hacemos es ordenar tus señales
+      cardiovasculares y avisar cuando algo amerita que lo consultes con tu obstetra.</p>
+      <p>Si estás en el primer trimestre y todavía no tuviste tu primera consulta obstétrica, esa
+      es la prioridad. Nosotros venimos después.</p>"""),
+    ("Tuve preeclampsia hace cinco años. ¿Sirve igual empezar ahora?", """
+      <p>Sirve especialmente. El riesgo cardiovascular asociado a un evento adverso del embarazo
+      no vence: se despliega a lo largo de décadas. Cinco años después es un momento perfectamente
+      razonable para hacer la evaluación que probablemente no te ofrecieron en el posparto.</p>
+      <p>Y si tenés los registros de ese embarazo —cifras de presión, análisis, epicrisis— traelos.
+      Son datos clínicos valiosos que casi nadie vuelve a mirar.</p>"""),
+    ("¿Reemplaza a mi obstetra?", """
+      <p>De ninguna manera. Tu obstetra conduce el embarazo. Nosotros aportamos una lectura
+      cardiovascular estructurada entre consulta y consulta, en un formato estándar que su sistema
+      puede leer. Si hay una señal de alarma, la conversación es con tu obstetra, no con nosotros.</p>"""),
+    ("Estoy amamantando. ¿Hay algo que no pueda hacer?", """
+      <p>Nada de lo que hacemos interfiere con la lactancia: medimos, acompañamos y educamos.
+      No indicamos medicación ni suplementos. Las recomendaciones de actividad y alimentación
+      contemplan el período de lactancia y sus requerimientos.</p>"""),
+    ("¿Y si no pienso tener hijos?", """
+      <p>La evaluación cardiovascular te sirve igual, y bastante. Si estás entre los 28 y los 44
+      años, es la mejor edad para establecer tu línea de base: conocer tu lipoproteína(a), tu
+      perfil de riesgo y tus antecedentes familiares mientras hay tiempo de sobra para actuar.</p>
+      <p>Este grupo se llama así porque la maternidad es un evento cardiovascular relevante para
+      quienes la atraviesan, no porque sea un requisito para entrar.</p>"""),
+    ("¿Cuánto cuesta?", """
+      <p>La evaluación inicial es gratuita y no pide datos de pago. Si después querés seguir con
+      el Plan Bienestar 100 Días®, te contamos las condiciones al final, sin compromiso.</p>"""),
+    ("¿Qué pasa con mis datos?", """
+      <p>Son tuyos. Viven en servidores en Argentina, bajo la Ley 25.326, con la base inscripta en
+      el Registro Nacional de Bases de Datos de la AAIP. No los vendemos ni los cedemos con fines
+      comerciales, y podés llevártelos o pedir que los borremos.
+      <a href="politica_de_privacidad.html">Leer la política completa →</a></p>"""),
+]
+_FAQ_B_ITEMS = "\n".join(
+    f'    <details><summary>{q}</summary><div class="ans">{a}\n    </div></details>'
+    for q, a in _FAQ_B)
+
+PAGES["embarazo.html"] = dict(
+    title="Embarazo y corazón", active=None, cls="pg-b",
+    desc="El embarazo es una prueba de esfuerzo cardiovascular y casi nadie te da el resultado. Preeclampsia, diabetes gestacional y parto prematuro predicen tu riesgo futuro. Evaluación inicial gratuita.",
+    body="""<section class="phero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Inicio</a><span>/</span><a href="enlaces.html">Programas</a><span>/</span>Embarazo</p>
+    <p class="eyebrow">Mujeres de 28 a 44 · Grupo B</p>
+  </div>
+  <div class="wrap phero-grid" style="margin-top:6px">
+    <div>
+      <h1 style="max-width:22ch">El embarazo es una prueba de esfuerzo. Casi nadie te da el resultado.</h1>
+      <p class="lede" style="max-width:56ch">Durante nueve meses tu sistema cardiovascular trabaja
+      al límite. Cómo respondió a esa exigencia dice mucho sobre tu salud de los próximos treinta
+      años. Es información clínica valiosa, y casi siempre se pierde.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" data-cta="hero" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación · gratis</a>
+        <a class="btn btn-ghost" href="#momentos">Ver los tres momentos</a>
+      </div>
+    </div>
+    <aside class="card-fx">
+      <h4>La evaluación inicial</h4>
+      <div class="fx-row"><span class="k">Cuánto dura</span><span class="v">10 minutos</span></div>
+      <div class="fx-row"><span class="k">Cuánto cuesta</span><span class="v">Gratis</span></div>
+      <div class="fx-row"><span class="k">Sirve si estás</span><span class="v">Antes, durante o después</span></div>
+      <div class="fx-row"><span class="k">Marco clínico</span><span class="v">AHA Life&#39;s Essential 8™</span></div>
+      <div class="fx-row"><span class="k">Fertilidad</span><span class="v">No es nuestro campo</span></div>
+      <div class="fx-row"><span class="k">Tus datos</span><span class="v">Servidores en Argentina</span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">La curva</p>
+      <h2>Lo que le pasa a tu corazón en un embarazo</h2>
+      <p class="lede">El volumen sanguíneo aumenta entre un 40 % y un 50 %. El corazón bombea más,
+      más rápido y durante meses. Después del parto, la carga baja —pero la información que dejó
+      ese período casi nunca se recoge.</p>
+    </div>
+
+    <figure class="arc rv" style="margin:0">
+      <figcaption class="arc-top">
+        <span>Carga cardiovascular a lo largo del embarazo</span>
+        <span>Esquemático</span>
+      </figcaption>
+      <div class="arc-body">
+        <svg id="arc-svg" viewBox="0 0 720 290" role="img"
+             aria-label="Curva esquemática de la carga cardiovascular. Parte de una línea de base en la preconcepción, asciende de forma sostenida durante el embarazo hasta un pico alrededor de las semanas 28 a 32, cae tras el parto y desciende gradualmente durante el posparto sin volver de inmediato al punto de partida. La zona del posparto está marcada como ventana de seguimiento que habitualmente no se utiliza."></svg>
+      </div>
+      <div class="arc-foot">
+        <div class="arc-cell">
+          <div class="k">Antes</div>
+          <div class="t">La ventana de mayor palanca</div>
+          <p>Optimizar el perfil cardiovascular antes de concebir mejora el embarazo y la trayectoria posterior. Casi nunca se hace.</p>
+        </div>
+        <div class="arc-cell">
+          <div class="k">Durante</div>
+          <div class="t">La prueba de esfuerzo</div>
+          <p>El pico de carga llega alrededor de las semanas 28 a 32. Ahí es donde suelen aparecer las señales.</p>
+        </div>
+        <div class="arc-cell is-gap">
+          <div class="k">Después</div>
+          <div class="t">La ventana que se cierra</div>
+          <p>Toda la atención pasa al bebé. El control cardiovascular materno es el que más se pierde.</p>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="band band-alt">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">El resultado que no te dieron</p>
+      <h2>Si algo de esto pasó en tu embarazo, tu corazón lo registró</h2>
+      <p class="lede">Estos eventos están reconocidos como factores que aumentan el riesgo
+      cardiovascular a lo largo de la vida. Salís del sanatorio, la presión se normaliza, y la
+      información desaparece del expediente.</p>
+    </div>
+    <div class="apo rv">
+      <div class="apo-hd"><div>Lo que pasó en tu embarazo</div><div>Lo que significa para tu corazón</div></div>
+""" + _APO_ROWS + """
+    </div>
+    <div class="callout callout-warn rv" style="margin-top:28px;max-width:80ch">
+      <p><b>Esto no es un diagnóstico ni una condena.</b> Es información de estratificación: que
+      un evento aumente el riesgo poblacional no determina lo que va a pasar con vos. Lo que sí
+      hace es cambiar qué conviene medir, con qué frecuencia y desde qué edad. Saberlo a los 35
+      es una ventaja enorme sobre enterarse a los 60.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="momentos">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Tres momentos</p>
+      <h2>Sirve en cualquiera de los tres</h2>
+      <p class="lede">No hace falta estar planificando para que esto tenga sentido. Cada etapa
+      tiene su propia oportunidad.</p>
+    </div>
+    <div class="mom rv">
+      <article class="mom-c mom-1">
+        <div class="when2">Antes de concebir</div>
+        <h3>Preconcepción</h3>
+        <p>Es la ventana de mayor rendimiento y la más desaprovechada. Lo que se corrige acá mejora
+        el embarazo <em>y</em> tu trayectoria de las próximas décadas.</p>
+        <ul>
+          <li>Línea de base cardiovascular completa</li>
+          <li>Lipoproteína(a), una sola vez en la vida</li>
+          <li>Presión, lípidos y glucemia antes del embarazo</li>
+          <li>Antecedentes familiares ordenados</li>
+          <li>Plan de optimización previo a la concepción</li>
+        </ul>
+      </article>
+      <article class="mom-c mom-2">
+        <div class="when2">Durante el embarazo</div>
+        <h3>Seguimiento</h3>
+        <p>Complementa tu control obstétrico. Ordena las señales cardiovasculares y te avisa cuándo
+        conviene consultar, sin superponerse con tu obstetra.</p>
+        <ul>
+          <li>Registro de presión domiciliaria estructurado</li>
+          <li>Señales de alarma explicadas en claro</li>
+          <li>Sueño y actividad adaptados al trimestre</li>
+          <li>Informe legible para tu equipo obstétrico</li>
+          <li>Derivación cardiológica si hace falta</li>
+        </ul>
+      </article>
+      <article class="mom-c mom-3">
+        <div class="when2">Después del parto</div>
+        <h3>Posparto</h3>
+        <p>La etapa que más se descuida. Si tuviste un evento adverso, este es el momento de dejarlo
+        registrado y armar el seguimiento que va a servirte durante décadas.</p>
+        <ul>
+          <li>Registro formal de lo que pasó en el embarazo</li>
+          <li>Control de presión en las semanas posteriores</li>
+          <li>Reevaluación metabólica si hubo diabetes gestacional</li>
+          <li>Recuperación cardiovascular progresiva</li>
+          <li>Plan de vigilancia a largo plazo</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band band-ink">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Corazón de Mamá</p>
+      <h2>No estamos solos en esto</h2>
+      <p class="lede">La salud cardiovascular materna es una prioridad regional declarada. La
+      iniciativa Corazón de Mamá reúne a la Sociedad Interamericana de Cardiología, la American
+      Heart Association y la Federación Argentina de Cardiología alrededor de este problema.</p>
+      <p class="lede">Nuestro aporte es convertir una campaña de concientización anual en un
+      programa de evaluación y seguimiento que funcione todo el año, con datos estructurados que
+      sirvan también para investigación.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="eyebrow">Qué medimos</p>
+      <h2>Tres preguntas, en vez de un número suelto</h2>
+    </div>
+    <div class="dims rv">
+      <article class="dim dim-e">
+        <div class="dim-hd"><span class="dim-ltr">E</span></div>
+        <h3>Equilibrio</h3>
+        <p class="q">Qué hace tu cuerpo</p>
+        <p>Cómo se comportan tu presión, tu sueño y tu ritmo semana a semana. En el embarazo la
+        <strong>tendencia</strong> importa más que cualquier medición aislada de consultorio.</p>
+      </article>
+      <article class="dim dim-p">
+        <div class="dim-hd"><span class="dim-ltr">P</span></div>
+        <h3>Precisión</h3>
+        <p class="q">Qué dice tu riesgo</p>
+        <p>Acá entran los eventos de tus embarazos previos, junto con laboratorio, antecedentes
+        familiares y <strong>lipoproteína(a)</strong>. Tu historia obstétrica es un dato
+        cardiovascular, no solo obstétrico.</p>
+      </article>
+      <article class="dim dim-a">
+        <div class="dim-hd"><span class="dim-ltr">A</span></div>
+        <h3>Armonía</h3>
+        <p class="q">Qué sentís vos</p>
+        <p>Síntomas, sueño percibido y ánimo, respondidos por WhatsApp en dos minutos. El posparto
+        es un período de alta carga emocional y <strong>eso también se mide</strong>.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Confianza</p><h2>Lo que no vas a encontrar acá</h2></div>
+    <div class="cards rv">
+      <div class="card"><h3>No somos fertilidad</h3><p>No tratamos infertilidad ni acompañamos reproducción asistida. Nuestro campo es cardiovascular.</p></div>
+      <div class="card"><h3>No reemplazamos a tu obstetra</h3><p>Tu obstetra conduce el embarazo. Nosotros aportamos la lectura cardiovascular entre consultas.</p></div>
+      <div class="card"><h3>No somos una app de embarazo</h3><p>No contamos semanas ni comparamos el tamaño del bebé con frutas. Hay apps excelentes para eso.</p></div>
+      <div class="card"><h3>No diagnosticamos</h3><p>Ni indicamos, suspendemos ni ajustamos medicación. Eso le corresponde a tu equipo tratante.</p></div>
+      <div class="card"><h3>No vendemos suplementos</h3><p>Ni prenatales, ni fórmulas, ni nada. No tenemos nada que colocarte.</p></div>
+      <div class="card"><h3>No usamos la culpa</h3><p>Un evento adverso en el embarazo no es algo que hiciste mal. Es información, y la tratamos así.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Preguntas frecuentes</p><h2>Lo que suelen preguntarnos</h2></div>
+    <div class="faq rv" style="max-width:80ch">
+""" + _FAQ_B_ITEMS + """
+    </div>
+  </div>
+</section>
+
+<section class="band band-ink cta-fin">
+  <div class="wrap rv">
+    <p class="eyebrow" style="justify-content:center">Diez minutos</p>
+    <h2>Lo que no se conoce, no se previene.</h2>
+    <p class="lede">Estés planificando, embarazada o con hijos grandes, la evaluación inicial te
+    dice dónde estás parada hoy. Es gratuita y no pide datos de pago.</p>
+    <div class="row">
+      <a class="btn btn-signal" data-cta="cierre" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.32);color:#fff" href="https://wa.me/5491169315830?text=Hola,%20quiero%20consultar%20sobre%20salud%20cardiovascular%20y%20embarazo.">Preguntar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Arco cardiovascular del embarazo. Esquemático y deliberadamente sin
+   eje Y numérico: comunica la forma de la curva y la ventana posparto
+   desaprovechada, no valores hemodinámicos concretos. */
+(function () {
+  var svg = document.getElementById("arc-svg");
+  if (!svg) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var W = 720, H = 290, T = 26, B = 54, L = 14, R = 14;
+  var xPre = 118, xBirth = 486;            // fin de preconcepción · parto
+  var yBase = 206, yPeak = 84, yEnd = 168; // línea de base · pico · posparto
+
+  var curve =
+    "M" + L + " " + yBase +
+    " L" + xPre + " " + yBase +
+    " C" + (xPre + 78) + " " + (yBase - 14) +
+    " "  + (xPre + 150) + " " + (yPeak + 62) +
+    " "  + 322 + " " + (yPeak + 26) +
+    " C" + 372 + " " + (yPeak + 2) +
+    " "  + 402 + " " + yPeak +
+    " "  + 432 + " " + yPeak +
+    " L" + xBirth + " " + (yPeak + 10) +
+    " C" + (xBirth + 20) + " " + (yPeak + 66) +
+    " "  + (xBirth + 74) + " " + (yEnd - 22) +
+    " "  + (W - R) + " " + yEnd;
+
+  var g = "";
+  g += '<rect class="arc-zone" x="' + L + '" y="' + T + '" width="' + (xPre - L) + '" height="' + (H - T - B) + '" rx="3"/>';
+  g += '<rect class="arc-gap"  x="' + xBirth + '" y="' + T + '" width="' + (W - R - xBirth) + '" height="' + (H - T - B) + '" rx="3"/>';
+  g += '<line class="arc-base" x1="' + L + '" y1="' + yBase + '" x2="' + (W - R) + '" y2="' + yBase + '"/>';
+  g += '<path class="arc-fill" d="' + curve + " L" + (W - R) + " " + (H - B) + " L" + L + " " + (H - B) + ' Z"/>';
+  g += '<path class="arc-curve" id="arc-line" d="' + curve + '"/>';
+  g += '<line class="arc-birth" x1="' + xBirth + '" y1="' + T + '" x2="' + xBirth + '" y2="' + (H - B) + '"/>';
+
+  g += '<text class="arc-lbl" x="' + (L + 6) + '" y="' + (H - 34) + '">PRECONCEPCIÓN</text>';
+  g += '<text class="arc-lbl" x="' + (xPre + 8) + '" y="' + (H - 34) + '">SEMANA 0</text>';
+  g += '<circle cx="440" cy="' + yPeak + '" r="3.4" fill="var(--signal)"/>';
+  g += '<line class="arc-birth" x1="440" y1="' + (yPeak - 8) + '" x2="440" y2="' + (yPeak - 26) + '"/>';
+  g += '<text class="arc-note" x="440" y="' + (yPeak - 34) + '" text-anchor="middle">Pico de carga</text>';
+  g += '<text class="arc-lbl" x="440" y="' + (yPeak - 50) + '" text-anchor="middle">SEMANAS 28–32</text>';
+  g += '<text class="arc-lbl" x="' + (xBirth - 8) + '" y="' + (H - 34) + '" text-anchor="end">PARTO</text>';
+  g += '<text class="arc-lbl" x="' + (W - R) + '" y="' + (H - 34) + '" text-anchor="end">POSPARTO · 12 MESES</text>';
+  g += '<text class="arc-lbl" x="' + (L + 6) + '" y="' + (yBase + 16) + '">línea de base</text>';
+  g += '<text class="arc-note" x="' + (xBirth + 14) + '" y="' + (T + 20) + '">Ventana de seguimiento</text>';
+  g += '<text class="arc-lbl" x="' + (xBirth + 14) + '" y="' + (T + 36) + '">HABITUALMENTE NO SE USA</text>';
+  g += '<text class="arc-note" x="' + (xPre + 14) + '" y="' + (yBase - 8) + '">Volumen sanguíneo +40–50 %</text>';
+
+  svg.innerHTML = g;
+
+  if (reduce) return;
+  var p = document.getElementById("arc-line"), len = p.getTotalLength();
+  p.style.strokeDasharray = len;
+  p.style.strokeDashoffset = len;
+  p.style.transition = "stroke-dashoffset 2s cubic-bezier(.36,.86,.34,1) .2s";
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () { p.style.strokeDashoffset = 0; });
+  });
 })();
 </script>
 """)

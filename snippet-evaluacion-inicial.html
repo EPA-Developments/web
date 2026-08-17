@@ -1,0 +1,145 @@
+<!-- ═══════════════════════════════════════════════════════════════
+     EPA Bienestar IA — Cierre del embudo
+     Instalar en: info.epa-bienestar.com.ar/evaluacion-inicial.php
+
+     SIN ESTO NO HAY EMBUDO. El sitio principal mide la intención
+     (quién hace clic), pero la conversión ocurre acá. Si esta página
+     no lleva el MISMO measurement ID, GA4 registra a la persona como
+     un usuario nuevo y sin origen, y las dos landings quedan sin
+     forma de compararse.
+
+     Pegar dentro de <head>, lo más arriba posible.
+     ═══════════════════════════════════════════════════════════════ -->
+
+<script>
+/* Consent Mode: mismos valores que el sitio principal. La cookie de
+   consentimiento se comparte porque localStorage NO cruza subdominios,
+   así que acá se vuelve a declarar el default. Si el visitante había
+   desactivado la analítica en www, este valor lo respeta vía la cookie
+   de GA que sí es compartida a nivel de dominio raíz. */
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'granted',
+  functionality_storage: 'granted',
+  security_storage: 'granted'
+});
+
+gtag('js', new Date());
+gtag('config', 'G-5J3NZ57F9D', {
+  anonymize_ip: true,
+  allow_google_signals: false,
+  allow_ad_personalization_signals: false,
+  linker: {
+    domains: ['epa-bienestar.com.ar', 'www.epa-bienestar.com.ar',
+              'info.epa-bienestar.com.ar', 'mujer.epa-bienestar.com.ar'],
+    decorate_forms: true
+  }
+});
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5J3NZ57F9D"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ── Leer el origen que mandó el sitio principal ───────────
+     epa_src = qué página (menopausia, embarazo, index…)
+     epa_cta = qué botón (hero, cierre, reconocimiento, header…)
+     Deliberadamente NO son utm_*: un utm_source en navegación entre
+     subdominios propios corta la sesión de GA4 y sobrescribe la
+     fuente original de adquisición.                             */
+  var q = new URLSearchParams(location.search);
+  var origen = q.get('epa_src') || '(directo)';
+  var boton  = q.get('epa_cta') || '(ninguno)';
+
+  gtag('event', 'evaluacion_inicio', {
+    origen_pagina: origen,
+    origen_cta: boton
+  });
+
+  /* ── Progreso dentro del formulario ────────────────────────
+     Ajustar los selectores a la estructura real del formulario.
+     Sin medición de pasos no se puede saber DÓNDE abandonan, que es
+     la pregunta que realmente importa una vez que hay tráfico.     */
+  var form = document.querySelector('form');
+  if (form) {
+    var visto = {};
+
+    /* Un evento la primera vez que se toca cada sección/paso.
+       Si el formulario es de página única, marcar los bloques con
+       data-paso="1", data-paso="2", etc. */
+    form.querySelectorAll('[data-paso]').forEach(function (bloque) {
+      bloque.addEventListener('focusin', function () {
+        var p = bloque.dataset.paso;
+        if (visto[p]) return;
+        visto[p] = true;
+        gtag('event', 'evaluacion_paso', {
+          paso: p, origen_pagina: origen, origen_cta: boton
+        });
+      });
+    });
+
+    form.addEventListener('submit', function () {
+      gtag('event', 'evaluacion_completa', {
+        origen_pagina: origen, origen_cta: boton
+      });
+    });
+  }
+
+  /* ── Abandono ──────────────────────────────────────────────
+     Marca a quien empezó a completar y se fue sin enviar. Es la
+     métrica que dice si el formulario es demasiado largo.        */
+  var tocoAlgo = false, envio = false;
+  document.addEventListener('input', function () { tocoAlgo = true; }, { once: true });
+  if (form) form.addEventListener('submit', function () { envio = true; });
+
+  window.addEventListener('pagehide', function () {
+    if (tocoAlgo && !envio) {
+      gtag('event', 'evaluacion_abandono', {
+        origen_pagina: origen, origen_cta: boton
+      });
+    }
+  });
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DESPUÉS DE INSTALAR — configurar en GA4
+
+     1. Admin → Flujos de datos → tu flujo web → Configurar
+        etiqueta → Configurar dominios → agregar:
+          epa-bienestar.com.ar
+          info.epa-bienestar.com.ar
+          mujer.epa-bienestar.com.ar
+        Sin esto, el paso entre subdominios puede contarse como
+        dos sesiones distintas.
+
+     2. Admin → Definiciones personalizadas → crear dimensiones
+        de ámbito EVENTO para poder segmentar:
+          origen_pagina · origen_cta · cta_id · cta_destination
+          page_group · faq_pregunta · paso
+
+        Sin registrarlas, los parámetros se envían igual pero NO
+        aparecen en los informes. Es el olvido más frecuente.
+
+     3. Admin → Eventos → marcar como evento clave (conversión):
+          evaluacion_completa   ← la conversión real
+          salida_evaluacion     ← intención, útil como micro-conversión
+
+     4. Explorar → Exploración de embudo, con estos pasos:
+          page_view (menopausia | embarazo)
+          profundidad_lectura (percent ≥ 50)
+          salida_evaluacion
+          evaluacion_inicio
+          evaluacion_completa
+        Desglosado por origen_pagina: ahí se ve cuál de las dos
+        landings convierte mejor.
+
+     Las definiciones personalizadas NO son retroactivas. Registralas
+     antes de empezar a mandar tráfico o vas a perder esos datos.
+     ═══════════════════════════════════════════════════════════════ -->

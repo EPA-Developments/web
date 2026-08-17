@@ -61,7 +61,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
-      <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
+      <a class="btn btn-solid" data-cta="header" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
       <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -96,6 +96,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <li><a href="#seguridad">Medidas de seguridad</a></li>
         <li><a href="#plazos">Cuánto tiempo los conservamos</a></li>
         <li><a href="#derechos">Tus derechos</a></li>
+        <li><a href="#cookies">Cookies y analítica</a></li>
         <li><a href="#menores">Personas menores de edad</a></li>
         <li><a href="#cambios">Cambios en esta política</a></li>
       </ol>
@@ -178,6 +179,23 @@ document.documentElement.setAttribute("data-theme",t);})();
     <p>La Agencia de Acceso a la Información Pública, en su carácter de órgano de control de la
     Ley 25.326, tiene la atribución de atender denuncias y reclamos por incumplimiento de las
     normas de protección de datos personales.</p>
+    <h3 id="cookies">Cookies y analítica</h3>
+    <p>Usamos cookies y herramientas de analítica —Google Analytics 4— para entender qué
+    contenidos resultan útiles y dónde se traba la navegación. Concretamente:</p>
+    <ul>
+      <li><strong>No hacemos publicidad ni remarketing.</strong> El almacenamiento publicitario
+      está deshabilitado por configuración, no solo por política: las señales de Google y la
+      personalización de anuncios están desactivadas en el código.</li>
+      <li><strong>No enviamos datos de salud a la analítica.</strong> Ninguna respuesta a un
+      cuestionario, ningún síntoma marcado y ninguna medición clínica sale hacia Google Analytics
+      ni hacia ningún tercero. Los datos clínicos viven exclusivamente en nuestra infraestructura
+      en Argentina.</li>
+      <li><strong>La dirección IP se anonimiza.</strong></li>
+      <li><strong>Podés desactivar la analítica</strong> desde el aviso que aparece en tu primera
+      visita. La preferencia queda guardada en tu navegador.</li>
+    </ul>
+    <p>También usamos almacenamiento local para recordar preferencias de visualización, como el
+    modo claro u oscuro. Ese dato no sale de tu dispositivo.</p>
     <h3 id="menores">Personas menores de edad</h3>
     <p>Las plataformas de EPA Bienestar IA están dirigidas a personas mayores de 18 años. No
     recogemos datos de personas menores de edad de forma deliberada. Si detectamos que se cargaron
@@ -229,6 +247,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <h4>Recursos</h4>
         <ul>
           <li><a href="menopausia.html">Menopausia y corazón</a></li>
+          <li><a href="embarazo.html">Embarazo y corazón</a></li>
           <li><a href="bienestar_con_datos.html">Bienestar con datos</a></li>
           <li><a href="por_que_elegirnos.html">Por qué elegirnos</a></li>
           <li><a href="modelo_de_atencion.html">Modelo de atención</a></li>
@@ -281,12 +300,11 @@ document.documentElement.setAttribute("data-theme",t);})();
 </a>
 
 <script src="assets/js/epa.js" defer></script>
+
+<!-- Analítica. epa-analytics.js define Consent Mode e instrumenta el embudo;
+     debe cargar ANTES del tag de Google para que el consentimiento por
+     defecto esté aplicado cuando gtag arranque. -->
+<script src="assets/js/epa-analytics.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J3NZ57F9D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5J3NZ57F9D');
-</script>
 </body>
 </html>

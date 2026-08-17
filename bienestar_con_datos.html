@@ -61,7 +61,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
-      <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
+      <a class="btn btn-solid" data-cta="header" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
       <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -132,12 +132,13 @@ document.documentElement.setAttribute("data-theme",t);})();
     </div>
 
     <div class="rv">
-      <div class="idx-bar" role="img" aria-label="Ponderación: Equilibrio 38 %, Precisión 32 %, Armonía 30 %.">
-        <div class="idx-seg seg-e">Equilibrio <span>38 %</span></div>
-        <div class="idx-seg seg-p">Precisión <span>32 %</span></div>
-        <div class="idx-seg seg-a">Armonía <span>30 %</span></div>
+      <div class="idx-bar" role="img" aria-label="Ponderación: Equilibrio 36 %, Precisión 33 %, Armonía 31 %.">
+        <div class="idx-seg seg-e">Equilibrio <span>36 %</span></div>
+        <div class="idx-seg seg-p">Precisión <span>33 %</span></div>
+        <div class="idx-seg seg-a">Armonía <span>31 %</span></div>
       </div>
-      <p class="idx-src">Derivadas del modelo de determinantes — comportamiento 38 % → E · genética 21 % + cuidado médico 11 % → P · social 23 % + ambiente 7 % → A</p>
+      <p class="idx-src">Derivadas del modelo de determinantes — comportamiento 36 % → E · genética 22 % + cuidado médico 11 % → P · social 24 % + ambiente 7 % → A<br />
+      Choi, E. &amp; Sonin, J. (2019). <em>Determinants of Health.</em> GoInvo. CC BY 4.0 · metodología v3, nov 2018.</p>
     </div>
 
     <div class="tbl-wrap rv">
@@ -168,17 +169,19 @@ document.documentElement.setAttribute("data-theme",t);})();
     <div class="head rv">
       <p class="eyebrow">Metodología</p>
       <h2>De dónde salen los pesos</h2>
-      <p class="lede">Los porcentajes no son estimaciones internas. Surgen del promedio de siete
+      <p class="lede">Los porcentajes no son estimaciones internas. Surgen del promedio de
       fuentes primarias: OMS, NEJM, Health Affairs, Institute of Medicine, JAMA, DHHS y
       Universidad de Wisconsin.</p>
+      <p class="lede" style="font-size:.92rem;opacity:.78">Modelo de Choi, E. &amp; Sonin, J. (2019),
+      <em>Determinants of Health</em>, GoInvo, bajo licencia CC BY 4.0 · metodología v3, noviembre de 2018.</p>
     </div>
     <div class="cards rv">
-      <div class="card"><div class="kicker">38 %</div><h3>Comportamiento</h3><p>Nutrición, actividad física, sueño y gestión del estrés. Es el determinante de mayor peso y también el más modificable.</p></div>
-      <div class="card"><div class="kicker">23 %</div><h3>Social</h3><p>Situación familiar, acceso a recursos, apoyo comunitario e inequidades de género.</p></div>
-      <div class="card"><div class="kicker">21 %</div><h3>Genética</h3><p>Antecedentes familiares, riesgo predispuesto, tamizaje selectivo. Acá vive Lp(a).</p></div>
+      <div class="card"><div class="kicker">36 %</div><h3>Comportamiento individual</h3><p>Nutrición, actividad física, sueño y gestión del estrés. Es el determinante de mayor peso y también el más modificable.</p></div>
+      <div class="card"><div class="kicker">24 %</div><h3>Circunstancias sociales</h3><p>Situación familiar, acceso a recursos, apoyo comunitario e inequidades de género.</p></div>
+      <div class="card"><div class="kicker">22 %</div><h3>Genética y biología</h3><p>Antecedentes familiares, riesgo predispuesto, tamizaje selectivo. Acá vive Lp(a).</p></div>
       <div class="card"><div class="kicker">11 %</div><h3>Cuidado médico</h3><p>Evaluación cardiovascular, medicación cuando corresponde, seguimiento clínico.</p></div>
-      <div class="card"><div class="kicker">7 %</div><h3>Ambiente</h3><p>Acceso a espacios de actividad, seguridad comunitaria, calidad del aire.</p></div>
-      <div class="card"><div class="kicker">Nota</div><h3>Alineación, no identidad</h3><p>La correspondencia entre determinante y dimensión del índice es conceptual. Lo declaramos explícitamente en toda publicación.</p></div>
+      <div class="card"><div class="kicker">7 %</div><h3>Ambiente físico</h3><p>Acceso a espacios de actividad, seguridad comunitaria, calidad del aire.</p></div>
+      <div class="card"><div class="kicker">Nota</div><h3>Alineación, no identidad</h3><p>La correspondencia entre determinante y dimensión del índice es conceptual, no estricta. Lo declaramos en toda publicación, junto con la versión de metodología usada.</p></div>
     </div>
   </div>
 </section>
@@ -206,7 +209,7 @@ document.documentElement.setAttribute("data-theme",t);})();
     <h2>Lo que no se conoce, no se previene.</h2>
     <p class="lede">La evaluación inicial es gratuita, toma diez minutos y devuelve tu punto de partida con el marco Life's Essential 8.</p>
     <div class="row">
-      <a class="btn btn-signal" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
+      <a class="btn btn-signal" data-cta="cierre" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.3);color:#fff" href="https://calendar.app.google/NeygNDb51VM6RLqb8">Agendar una demo</a>
     </div>
   </div>
@@ -252,6 +255,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <h4>Recursos</h4>
         <ul>
           <li><a href="menopausia.html">Menopausia y corazón</a></li>
+          <li><a href="embarazo.html">Embarazo y corazón</a></li>
           <li><a href="bienestar_con_datos.html">Bienestar con datos</a></li>
           <li><a href="por_que_elegirnos.html">Por qué elegirnos</a></li>
           <li><a href="modelo_de_atencion.html">Modelo de atención</a></li>
@@ -304,12 +308,11 @@ document.documentElement.setAttribute("data-theme",t);})();
 </a>
 
 <script src="assets/js/epa.js" defer></script>
+
+<!-- Analítica. epa-analytics.js define Consent Mode e instrumenta el embudo;
+     debe cargar ANTES del tag de Google para que el consentimiento por
+     defecto esté aplicado cuando gtag arranque. -->
+<script src="assets/js/epa-analytics.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J3NZ57F9D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5J3NZ57F9D');
-</script>
 </body>
 </html>

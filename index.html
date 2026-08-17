@@ -75,7 +75,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
-      <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
+      <a class="btn btn-solid" data-cta="header" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
       <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -166,7 +166,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <p>Es la primera causa de muerte femenina, por encima de todos los cánceres combinados.</p>
       </div>
       <div class="gap-cell is-teal">
-        <div class="num">38 %</div>
+        <div class="num">36 %</div>
         <h3>Del resultado depende del comportamiento</h3>
         <p>El determinante de mayor peso es también el más modificable. Ahí intervenimos.</p>
       </div>
@@ -188,20 +188,21 @@ document.documentElement.setAttribute("data-theme",t);})();
     </div>
 
     <div class="rv">
-      <div class="idx-bar" role="img" aria-label="Ponderación del índice: Equilibrio 38 por ciento, Precisión 32 por ciento, Armonía 30 por ciento.">
-        <div class="idx-seg seg-e">Equilibrio <span>38 %</span></div>
-        <div class="idx-seg seg-p">Precisión <span>32 %</span></div>
-        <div class="idx-seg seg-a">Armonía <span>30 %</span></div>
+      <div class="idx-bar" role="img" aria-label="Ponderación del índice: Equilibrio 36 por ciento, Precisión 33 por ciento, Armonía 31 por ciento.">
+        <div class="idx-seg seg-e">Equilibrio <span>36 %</span></div>
+        <div class="idx-seg seg-p">Precisión <span>33 %</span></div>
+        <div class="idx-seg seg-a">Armonía <span>31 %</span></div>
       </div>
       <p class="idx-src">
         Ponderaciones derivadas del modelo de determinantes de salud —
-        comportamiento 38 % → E · genética 21 % + cuidado médico 11 % → P · social 23 % + ambiente 7 % → A
+        comportamiento 36 % → E · genética 22 % + cuidado médico 11 % → P · social 24 % + ambiente 7 % → A<br />
+        Choi, E. &amp; Sonin, J. (2019). <em>Determinants of Health.</em> GoInvo. CC BY 4.0 · metodología v3, nov 2018.
       </p>
     </div>
 
     <div class="dims rv">
       <article class="dim dim-e">
-        <div class="dim-hd"><span class="dim-ltr">E</span><span class="dim-wt">38 %</span></div>
+        <div class="dim-hd"><span class="dim-ltr">E</span><span class="dim-wt">36 %</span></div>
         <h3>Equilibrio</h3>
         <p class="q">Lo que el cuerpo hace</p>
         <p>Variabilidad y trayectoria fisiológica sobre ventanas de 28 días. Medimos la dispersión, no el valor puntual.</p>
@@ -215,7 +216,7 @@ document.documentElement.setAttribute("data-theme",t);})();
       </article>
 
       <article class="dim dim-p">
-        <div class="dim-hd"><span class="dim-ltr">P</span><span class="dim-wt">32 %</span></div>
+        <div class="dim-hd"><span class="dim-ltr">P</span><span class="dim-wt">33 %</span></div>
         <h3>Precisión</h3>
         <p class="q">Lo que el riesgo dice</p>
         <p>Estratificación estructural. Incluye Lp(a) —genética, se mide una vez en la vida, y está subutilizada en la región.</p>
@@ -229,7 +230,7 @@ document.documentElement.setAttribute("data-theme",t);})();
       </article>
 
       <article class="dim dim-a">
-        <div class="dim-hd"><span class="dim-ltr">A</span><span class="dim-wt">30 %</span></div>
+        <div class="dim-hd"><span class="dim-ltr">A</span><span class="dim-wt">31 %</span></div>
         <h3>Armonía</h3>
         <p class="q">Lo que la mujer siente</p>
         <p>Outcomes reportados por la paciente, con instrumentos validados, capturados por conversación en WhatsApp.</p>
@@ -276,12 +277,13 @@ document.documentElement.setAttribute("data-theme",t);})();
         <h3>Crecimiento y desarrollo</h3>
         <p>Establecer hábitos cardiovasculares que duran toda la vida.</p>
       </article>
-      <article class="grp-c">
+      <a class="grp-c" href="embarazo.html" style="text-decoration:none;color:inherit">
         <div class="grp-l">B</div>
         <div class="age">28 – 44</div>
         <h3>Maternidad planificada</h3>
         <p>Preparación preconcepcional y salud cardio-obstétrica.</p>
-      </article>
+        <p style="font-family:var(--f-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-top:12px">Ver el programa →</p>
+      </a>
       <a class="grp-c is-focus" href="menopausia.html" style="text-decoration:none;color:inherit">
         <span class="tag">Foco 2026</span>
         <div class="grp-l">C</div>
@@ -312,18 +314,22 @@ document.documentElement.setAttribute("data-theme",t);})();
       <p class="eyebrow">Metodología</p>
       <h2>Modelo de determinantes de salud</h2>
       <p class="lede">
-        Los pesos surgen del promedio de siete fuentes primarias — OMS, NEJM, Health Affairs,
+        Los pesos surgen del promedio de fuentes primarias — OMS, NEJM, Health Affairs,
         Institute of Medicine, JAMA, DHHS y Universidad de Wisconsin. No son estimaciones internas:
         son un criterio externo, publicado y reproducible.
+      </p>
+      <p class="lede" style="font-size:.9rem;opacity:.75">
+        Modelo de Choi, E. &amp; Sonin, J. (2019), <em>Determinants of Health</em>, GoInvo,
+        bajo licencia CC BY 4.0 · metodología v3, noviembre de 2018.
       </p>
       <p class="lede" style="font-size:.95rem;opacity:.8">
         De ahí también salen las ponderaciones del Índice EPA.
       </p>
     </div>
     <div class="rv" id="det">
-      <div class="det-row"><span class="nm">Comportamiento</span><div class="det-track"><div class="det-fill" data-w="38" style="background:#E5B04A"></div></div><span class="pc">38 %</span></div>
-      <div class="det-row"><span class="nm">Social</span><div class="det-track"><div class="det-fill" data-w="23" style="background:#C56A98"></div></div><span class="pc">23 %</span></div>
-      <div class="det-row"><span class="nm">Genética</span><div class="det-track"><div class="det-fill" data-w="21" style="background:#6CC5C0"></div></div><span class="pc">21 %</span></div>
+      <div class="det-row"><span class="nm">Comportamiento</span><div class="det-track"><div class="det-fill" data-w="36" style="background:#E5B04A"></div></div><span class="pc">36 %</span></div>
+      <div class="det-row"><span class="nm">Social</span><div class="det-track"><div class="det-fill" data-w="24" style="background:#C56A98"></div></div><span class="pc">24 %</span></div>
+      <div class="det-row"><span class="nm">Genética</span><div class="det-track"><div class="det-fill" data-w="22" style="background:#6CC5C0"></div></div><span class="pc">22 %</span></div>
       <div class="det-row"><span class="nm">Cuidado médico</span><div class="det-track"><div class="det-fill" data-w="11" style="background:#8FB4D6"></div></div><span class="pc">11 %</span></div>
       <div class="det-row"><span class="nm">Ambiente</span><div class="det-track"><div class="det-fill" data-w="7" style="background:#A8B4BF"></div></div><span class="pc">7 %</span></div>
     </div>
@@ -502,7 +508,7 @@ document.documentElement.setAttribute("data-theme",t);})();
       con el marco Life's Essential 8.
     </p>
     <div class="row">
-      <a class="btn btn-signal" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
+      <a class="btn btn-signal" data-cta="cierre" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.3);color:#fff" href="https://calendar.app.google/NeygNDb51VM6RLqb8">Agendar una demo</a>
     </div>
   </div>
@@ -549,6 +555,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <h4>Recursos</h4>
         <ul>
           <li><a href="menopausia.html">Menopausia y corazón</a></li>
+          <li><a href="embarazo.html">Embarazo y corazón</a></li>
           <li><a href="bienestar_con_datos.html">Bienestar con datos</a></li>
           <li><a href="bienestar_con_datos.html">Bienestar con datos</a></li>
           <li><a href="por_que_elegirnos.html">Por qué elegirnos</a></li>
@@ -603,13 +610,9 @@ document.documentElement.setAttribute("data-theme",t);})();
 
 <script src="assets/js/epa.js" defer></script>
 
-<!-- Google Analytics -->
+<!-- Analítica. epa-analytics.js define Consent Mode e instrumenta el embudo;
+     debe cargar ANTES del tag de Google. -->
+<script src="assets/js/epa-analytics.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J3NZ57F9D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5J3NZ57F9D');
-</script>
 </body>
 </html>

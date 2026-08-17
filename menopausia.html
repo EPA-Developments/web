@@ -61,7 +61,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </button>
-      <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
+      <a class="btn btn-solid" data-cta="header" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Evaluación inicial</a>
       <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -82,7 +82,7 @@ document.documentElement.setAttribute("data-theme",t);})();
       tiempo, en silencio, cambia tu perfil cardiovascular. Esta es la etapa en que conviene mirarlo
       —y es la que casi nunca se mira.</p>
       <div class="hero-cta">
-        <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación · gratis</a>
+        <a class="btn btn-solid" data-cta="hero" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación · gratis</a>
         <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
       </div>
     </div>
@@ -140,7 +140,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <p>Primera causa de muerte femenina, por encima de todos los cánceres combinados.</p>
       </div>
       <div class="gap-cell is-teal">
-        <div class="num">38 %</div>
+        <div class="num">36 %</div>
         <h3>Del resultado depende de lo que hacés</h3>
         <p>Es el factor de mayor peso y el único que podés empezar a mover esta semana.</p>
       </div>
@@ -176,7 +176,7 @@ document.documentElement.setAttribute("data-theme",t);})();
     <div class="recog-out rv" id="recog-out" hidden>
       <p><b>Marcaste <span class="n" id="rc-n">0</span> de 10.</b> <span id="rc-msg"></span></p>
       <p style="margin-top:14px">
-        <a class="btn btn-solid" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Empezar mi evaluación</a>
+        <a class="btn btn-solid" data-cta="reconocimiento" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Empezar mi evaluación</a>
       </p>
     </div>
   </div>
@@ -296,7 +296,7 @@ document.documentElement.setAttribute("data-theme",t);})();
       <a href="politica_de_privacidad.html">Leer la política de privacidad completa →</a></p>
     </div></details>
     <details><summary>¿Esto me va a decir que baje de peso?</summary><div class="ans">
-      <p>No es el enfoque. El determinante de mayor peso es el comportamiento —38 %—, y trabajamos
+      <p>No es el enfoque. El determinante de mayor peso es el comportamiento —36 %—, y trabajamos
       sobre sueño, actividad, alimentación y estrés porque mueven marcadores cardiovasculares, no
       porque haya un número en la balanza que alcanzar.</p>
       <p>En antropometría miramos la trayectoria de la cintura, no el índice de masa corporal,
@@ -314,7 +314,7 @@ document.documentElement.setAttribute("data-theme",t);})();
     <p class="lede">La evaluación inicial es gratuita, no pide datos de pago y te dice dónde estás
     parada hoy. Es el punto de partida de todo lo demás.</p>
     <div class="row">
-      <a class="btn btn-signal" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
+      <a class="btn btn-signal" data-cta="cierre" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php">Hacer mi evaluación inicial</a>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.32);color:#fff" href="https://wa.me/5491169315830?text=Hola,%20quiero%20consultar%20sobre%20el%20Programa%20Mujer%20para%20menopausia.">Preguntar por WhatsApp</a>
     </div>
   </div>
@@ -386,6 +386,7 @@ document.documentElement.setAttribute("data-theme",t);})();
         <h4>Recursos</h4>
         <ul>
           <li><a href="menopausia.html">Menopausia y corazón</a></li>
+          <li><a href="embarazo.html">Embarazo y corazón</a></li>
           <li><a href="bienestar_con_datos.html">Bienestar con datos</a></li>
           <li><a href="por_que_elegirnos.html">Por qué elegirnos</a></li>
           <li><a href="modelo_de_atencion.html">Modelo de atención</a></li>
@@ -438,12 +439,11 @@ document.documentElement.setAttribute("data-theme",t);})();
 </a>
 
 <script src="assets/js/epa.js" defer></script>
+
+<!-- Analítica. epa-analytics.js define Consent Mode e instrumenta el embudo;
+     debe cargar ANTES del tag de Google para que el consentimiento por
+     defecto esté aplicado cuando gtag arranque. -->
+<script src="assets/js/epa-analytics.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J3NZ57F9D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5J3NZ57F9D');
-</script>
 </body>
 </html>
