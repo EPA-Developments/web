@@ -34,6 +34,11 @@ al menos `logo.png`, `favicon.ico` y `8pasos_AHA.jpg`.
     MEDICION.md                       Plan de medición y lectura del embudo
     build.py                          Generador de las páginas internas
 
+    INDICE-EPA_SPEC_v1.2.md           Especificación técnica del Índice EPA (vigente)
+    INDICE-EPA_SPEC_v1.1.md           Versión anterior, se conserva sin cambios
+    NT-2026-01_…md / NT-2026-02_…md   Notas técnicas (ponderaciones · dimensión A)
+    fhir/CodeSystem-epa-index.json    CodeSystem FHIR R4 de las dimensiones E/P/A
+
 ## Para modificar el sitio
 
 **Colores, tipografía, espaciados** → `assets/css/epa.css`, bloque `:root`
@@ -68,8 +73,8 @@ tenía un error aritmético (siete valores divididos por seis) que GoInvo
 rectificó semanas después. Los valores vigentes son 36/24/22/11/7.
 
 El origen del error, el análisis de impacto y la corrección están documentados
-en la fe de erratas (§0) de `INDICE-EPA_SPEC_v1.1` y en la nota técnica
-`NT-2026-01`.
+en la fe de erratas (§0) de `INDICE-EPA_SPEC_v1.1` —que la v1.2 conserva sin
+cambios— y en la nota técnica `NT-2026-01`.
 
 **Si volvés a tocar estos números, tocá los tres lugares:**
 
@@ -84,6 +89,22 @@ mentira visual, y en un sitio clínico eso no es un detalle estético.
 los autores: Choi, E. & Sonin, J. (2019). *Determinants of Health.* GoInvo.
 Debe aparecer donde se citen los porcentajes, indicando la versión de
 metodología (v3, nov 2018). No es cortesía: es la licencia.
+
+## Dimensión A — Autonomía (octubre 2026)
+
+La dimensión A del Índice EPA se llama **Autonomía** (antes *Armonía*). Es un cambio
+de nombre y de definición, **no de cálculo**: la ponderación (31 %), los ítems A1–A5 y
+la versión del motor (`epa-index-v1.1`) no cambian. El componente de automanejo y
+decisión compartida (A6) está propuesto, sin ponderar y pendiente de validación.
+
+Especificación vigente: `INDICE-EPA_SPEC_v1.2` (§00). Motivo y puntos abiertos:
+`NT-2026-02_REDENOMINACION-DIMENSION-A`.
+
+**Los códigos FHIR no se renombran.** `epa-dim-armonia` y `epa-bot-armonia` siguen
+igual para no romper `Observation` existentes ni integraciones. En
+`fhir/CodeSystem-epa-index.json` el `display` dice "Autonomía" y "Armonía" queda como
+sinónimo. Si alguna vez cambia un nombre visible, se cambia el `display`, nunca el
+`code`.
 
 ## Pendientes conocidos
 
@@ -111,7 +132,7 @@ también lo referencia en la sección de marco legal.
 ## Landing de Grupo C
 
 `menopausia.html` usa ciruela como color de acento en vez de teal. No es
-decorativo: es la dimensión Armonía, la que representa la voz de la paciente,
+decorativo: es la dimensión Autonomía (antes Armonía), la que representa la voz de la paciente,
 y es la página que le habla a ella. El scope está en la clase `.pg-c` del
 `<body>`; el resto del sistema no cambia.
 
