@@ -77,7 +77,7 @@ document.documentElement.setAttribute("data-theme",t);}})();
       <img src="{up}assets/img/logo.png" alt="" />
       <span class="brand-tx">
         <b>EPA Bienestar IA</b>
-        <span>Equilibrio · Precisión · Armonía</span>
+        <span>Equilibrio · Precisión · Autonomía</span>
       </span>
     </a>
 
@@ -110,7 +110,7 @@ document.documentElement.setAttribute("data-theme",t);}})();
           <img src="{up}assets/img/logo.png" alt="" />
           <div>
             <div style="font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:-.03em">EPA Bienestar IA</div>
-            <div class="ft-tag">Equilibrio · Precisión · Armonía</div>
+            <div class="ft-tag">Equilibrio · Precisión · Autonomía</div>
           </div>
         </div>
         <address>
@@ -309,10 +309,10 @@ PAGES["bienestar_con_datos.html"] = dict(
     </div>
 
     <div class="rv">
-      <div class="idx-bar" role="img" aria-label="Ponderación: Equilibrio 36 %, Precisión 33 %, Armonía 31 %.">
+      <div class="idx-bar" role="img" aria-label="Ponderación: Equilibrio 36 %, Precisión 33 %, Autonomía 31 %.">
         <div class="idx-seg seg-e">Equilibrio <span>36 %</span></div>
         <div class="idx-seg seg-p">Precisión <span>33 %</span></div>
-        <div class="idx-seg seg-a">Armonía <span>31 %</span></div>
+        <div class="idx-seg seg-a">Autonomía <span>31 %</span></div>
       </div>
       <p class="idx-src">Derivadas del modelo de determinantes — comportamiento 36 % → E · genética 22 % + cuidado médico 11 % → P · social 24 % + ambiente 7 % → A<br />
       Choi, E. &amp; Sonin, J. (2019). <em>Determinants of Health.</em> GoInvo. CC BY 4.0 · metodología v3, nov 2018.</p>
@@ -324,7 +324,7 @@ PAGES["bienestar_con_datos.html"] = dict(
         <tbody>
           <tr><td><strong>E — Equilibrio</strong></td><td>¿Qué hace el cuerpo a lo largo del tiempo?</td><td>Wearables continuos y monitoreo domiciliario</td><td class="yes">Observation</td></tr>
           <tr><td><strong>P — Precisión</strong></td><td>¿Qué dice el riesgo estructural?</td><td>Laboratorio y estadificación clínica</td><td class="yes">RiskAssessment</td></tr>
-          <tr><td><strong>A — Armonía</strong></td><td>¿Qué reporta la propia paciente?</td><td>Instrumentos validados vía WhatsApp</td><td class="yes">QuestionnaireResponse</td></tr>
+          <tr><td><strong>A — Autonomía</strong></td><td>¿Qué reporta la propia paciente?</td><td>Instrumentos validados vía WhatsApp</td><td class="yes">QuestionnaireResponse</td></tr>
         </tbody>
       </table>
     </div>
@@ -908,7 +908,7 @@ PAGES["enlaces.html"] = dict(
     <div class="head rv"><p class="eyebrow">Programas</p><h2>Todo lo que está en marcha</h2></div>
     <div class="cards rv">
       <a class="card" href="https://info.epa-bienestar.com.ar/"><div class="kicker">Producto principal</div><h3>Plan Bienestar 100 Días®</h3><p>El programa de intervención personalizado. Cien días con seguimiento continuo y medición de resultado mediante Δ-EPA.</p></a>
-      <a class="card" href="bienestar_con_datos.html#indice"><div class="kicker">Instrumento</div><h3>Índice EPA</h3><p>Equilibrio, Precisión y Armonía. Tres capas que Life's Essential 8 no tiene.</p></a>
+      <a class="card" href="bienestar_con_datos.html#indice"><div class="kicker">Instrumento</div><h3>Índice EPA</h3><p>Equilibrio, Precisión y Autonomía. Tres capas que Life's Essential 8 no tiene.</p></a>
       <a class="card" href="https://info.epa-bienestar.com.ar/evaluacion-inicial.php"><div class="kicker">Gratuito</div><h3>Evaluación inicial</h3><p>Diez minutos para conocer tu punto de partida con el marco Life's Essential 8. Sin costo.</p></a>
       <a class="card" href="programa/residentes/index.html"><div class="kicker">Profesionales</div><h3>Programa Residentes · FRICCAR</h3><p>Factores de riesgo cardiovascular de los residentes y cardiólogos argentinos. ¿Cómo se cuidan los que cuidan?</p></a>
       <a class="card" href="embarazo.html"><div class="kicker">Grupo B</div><h3>Embarazo y corazón</h3><p>El embarazo es una prueba de esfuerzo cardiovascular. Antes, durante y después: qué medir y por qué importa décadas más tarde.</p></a>
@@ -1423,8 +1423,8 @@ PAGES["menopausia.html"] = dict(
       </article>
       <article class="dim dim-a">
         <div class="dim-hd"><span class="dim-ltr">A</span></div>
-        <h3>Armonía</h3>
-        <p class="q">Qué sentís vos</p>
+        <h3>Autonomía</h3>
+        <p class="q">Qué decidís vos, junto a tu equipo médico</p>
         <p>Tus síntomas, tu sueño percibido, tu ánimo. Con instrumentos validados, respondidos por
         WhatsApp en dos minutos. <strong>Lo que reportás cuenta en el resultado.</strong></p>
       </article>
@@ -1765,8 +1765,8 @@ PAGES["embarazo.html"] = dict(
       </article>
       <article class="dim dim-a">
         <div class="dim-hd"><span class="dim-ltr">A</span></div>
-        <h3>Armonía</h3>
-        <p class="q">Qué sentís vos</p>
+        <h3>Autonomía</h3>
+        <p class="q">Qué decidís vos, junto a tu equipo médico</p>
         <p>Síntomas, sueño percibido y ánimo, respondidos por WhatsApp en dos minutos. El posparto
         es un período de alta carga emocional y <strong>eso también se mide</strong>.</p>
       </article>

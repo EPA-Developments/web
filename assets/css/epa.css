@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    EPA BIENESTAR IA — Sistema de diseño
-   Equilibrio · Precisión · Armonía
+   Equilibrio · Precisión · Autonomía
    Editar acá cambia TODAS las páginas del sitio.
    ═══════════════════════════════════════════════════════════ */
 
@@ -20,7 +20,7 @@
   --teal:       #0F5257;   /* institucional / Precisión */
   --teal-deep:  #0A3A3E;
   --amber:      #B8801A;   /* Equilibrio */
-  --plum:       #8E3B63;   /* Armonía */
+  --plum:       #8E3B63;   /* Autonomía */
   --signal:     #D93A4C;   /* trazado cardiovascular, alertas */
 
   --trace-calm: #0F5257;
@@ -637,7 +637,7 @@ a.card:hover { border-color: var(--teal); transform: translateY(-3px); box-shado
 .wrap.prose > * { max-width: 74ch; }
 
 /* ═══════════════════════════════════════════════════════════
-   LANDING GRUPO C — registro de Armonía
+   LANDING GRUPO C — registro de Autonomía
    La página que le habla a la mujer usa ciruela como acento,
    porque es la dimensión que representa su propia voz.
    ═══════════════════════════════════════════════════════════ */
