@@ -437,9 +437,9 @@ PAGES["por_que_elegirnos.html"] = dict(
     <p>EPA Bienestar IA está fundada y dirigida por un cardiólogo en ejercicio. Eso cambia la
     conversación con instituciones médicas: no llegamos a vender software, llegamos a proponer
     colaboración clínica.</p>
-    <p>El asesoramiento médico está a cargo del <strong>Dr. Alejandro Barbagelata</strong> (MD, FAHA,
-    FSCAI), profesor adjunto en Duke University School of Medicine y fellow de la American Heart
-    Association. El liderazgo científico en inteligencia artificial está en el
+    <p>La dirección médica está a cargo del <strong>Dr. Alejandro Barbagelata</strong> (MD, FAHA,
+    FSCAI), CMO de EPA Bienestar IA, profesor adjunto de Medicina en Duke University y fellow de la
+    American Heart Association. El liderazgo científico en inteligencia artificial está en el
     <strong>Laboratorio de IA del ITBA</strong>. La validación clínica se coordina con el Comité de
     Enfermedades Cardiovasculares en la Mujer de la <strong>Federación Argentina de Cardiología</strong>
     y con la <strong>Sociedad Argentina de Cardiología</strong>.</p>
@@ -489,7 +489,7 @@ PAGES["acerca_de_nosotros.html"] = dict(
 
 <section class="band band-alt" id="equipo">
   <div class="wrap">
-    <div class="head rv"><p class="eyebrow">Equipo</p><h2>Miembros fundadores</h2></div>
+    <div class="head rv"><p class="eyebrow">Equipo</p><h2>Equipo de dirección</h2></div>
     <div class="team rv">
       <article class="team-c">
         <h3>Alejandro S. D'Alessandro</h3>
@@ -499,11 +499,18 @@ PAGES["acerca_de_nosotros.html"] = dict(
         <a class="li-btn" href="https://www.linkedin.com/in/drdalessandro" target="_blank" rel="noopener">Seguir en LinkedIn</a>
       </article>
       <article class="team-c">
-        <h3>Gustavo Brey</h3>
-        <div class="role">CTO &amp; Co-Fundador</div>
+        <h3>Alejandro Barbagelata</h3>
+        <div class="role">CMO · Cardiólogo · MD, FAHA, FSCAI</div>
+        <p style="font-size:.9rem;color:var(--muted)">Lidera la estrategia médica y la validación clínica. Profesor adjunto en Duke University.</p>
+        <a class="mail" href="mailto:cmo@epa-bienestar.com">cmo@epa-bienestar.com</a>
+        <a class="li-btn" href="https://www.linkedin.com/in/barbagelata1/" target="_blank" rel="noopener">Seguir en LinkedIn</a>
+      </article>
+      <article class="team-c">
+        <h3>Juan Ichazo</h3>
+        <div class="role">CTO</div>
         <p style="font-size:.9rem;color:var(--muted)">Responsable de plataforma, infraestructura cloud y seguridad.</p>
         <a class="mail" href="mailto:cto@epa-bienestar.com">cto@epa-bienestar.com</a>
-        <a class="li-btn" href="https://www.linkedin.com/in/gbrey" target="_blank" rel="noopener">Seguir en LinkedIn</a>
+        <a class="li-btn" href="https://www.linkedin.com/in/juan-ichazo/" target="_blank" rel="noopener">Seguir en LinkedIn</a>
       </article>
     </div>
   </div>

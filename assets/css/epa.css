@@ -420,7 +420,7 @@ svg .ax-t { fill: var(--muted); font-family: var(--f-mono); font-size: 9.5px; le
 /* ═══════════════════════════════════════════════════════════
    EQUIPO / NOVEDADES
    ═══════════════════════════════════════════════════════════ */
-.team { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 20px; }
+.team { display: grid; grid-template-columns: repeat(3, minmax(0, 340px)); gap: 20px; }
 .team-c { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px; }
 .team-c h3 { font-size: 1.18rem; margin-bottom: 4px; }
 .team-c .role { font-family: var(--f-mono); font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
