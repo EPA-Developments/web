@@ -32,21 +32,21 @@ están en la nota técnica `NT-2026-02_REDENOMINACION-DIMENSION-A`.
 | Nombre de la dimensión A | Armonía | **Autonomía** |
 | Definición operacional (§5) | Carga sintomática, calidad de vida y capacidad de acción reportadas por la paciente | Lo mismo, **como base para que la paciente decida sobre su salud junto a su equipo médico** (automanejo y decisión compartida) |
 | `display` FHIR de `epa-dim-armonia` | — (código sin recurso `CodeSystem` publicado) | **"Autonomía"**, con *designation* "Armonía" como sinónimo (§10.4) |
-| Componente de automanejo / decisión compartida | No existía | **A6 propuesto, sin ponderar, pendiente de validación** (§5) |
+| Subcomponente A5 | Autoeficacia y activación | **Autoeficacia, activación y decisión compartida.** Se amplía su alcance conceptual; la métrica (escala propia de 6 ítems), su peso (10 % de A) y sus cortes no cambian (§5) |
 
 ### 00.2 Qué NO cambia
 
 | Elemento | Estado |
 |---|---|
 | Ponderación de A | **31 %**, sin cambios |
-| Subcomponentes A1–A5, sus pesos internos y sus tablas de corte | Sin cambios |
+| Subcomponentes A1–A5, sus métricas, sus pesos internos y sus tablas de corte | Sin cambios (A5 cambia de nombre, no de cálculo) |
 | Fórmula del índice, Δ-EPA, completitud y reglas de bloqueo (§6–§7) | Sin cambios |
 | Reglas de seguridad clínica (§8) | Sin cambios |
 | Códigos FHIR: `epa-dim-armonia`, `epa-bot-armonia`, `epa-mrs-*`, `epa-selfefficacy`, etc. | **Estables, no se renombran.** Renombrarlos invalidaría las `Observation` ya emitidas y rompería consultas e integraciones |
 | Versión del motor (`meta.tag`) | **`epa-index-v1.1`.** No se emite un tag nuevo porque el cálculo es idéntico; no hay nada que recalcular (§10.2) |
 
 > **Advertencia de comunicación.** El nombre "Autonomía" promete más de lo que la dimensión
-> A mide hoy. Hasta que A6 esté validado y ponderado, el puntaje de A sigue siendo un
+> A mide hoy. Mientras la escala de A5 no incorpore ítems validados de decisión compartida, el puntaje de A sigue siendo un
 > resultado reportado por la paciente (síntomas, sueño, ánimo, autoeficacia). **Ningún
 > material puede presentar el puntaje de A como una medida de la capacidad de decisión o de
 > automanejo de la paciente.**
@@ -255,8 +255,7 @@ Metodología v3 (15 nov 2018), que confirma los valores calculados en v2 (30 ago
     ├── A2  Carga de síntomas vasomotores .......... 25 % de A
     ├── A3  Calidad de sueño percibida (PSQI) ...... 20 % de A
     ├── A4  Ánimo y ansiedad (PHQ-9 + GAD-7) ....... 15 % de A
-    ├── A5  Autoeficacia / activación .............. 10 % de A
-    └── A6  Automanejo y decisión compartida ....... propuesto · sin ponderar
+    └── A5  Autoeficacia, activación y decisión compartida · 10 % de A
 ```
 
 Cada subcomponente se puntúa **0–100**. Cada dimensión es la media ponderada de sus subcomponentes. El índice es la media ponderada de las tres dimensiones.
@@ -505,8 +504,8 @@ z  =  [ rMSSD medio de 7 noches  −  μ(basal) ]  /  σ(basal)
 
 > Hasta la v1.1 esta dimensión se llamó **Armonía**. El cambio es de denominación y de
 > definición, no de cálculo: A1–A5, sus pesos y sus cortes son idénticos a la v1.1, y el
-> código FHIR sigue siendo `epa-dim-armonia` (§00). El componente de decisión compartida
-> (A6) está **propuesto y no puntúa**.
+> código FHIR sigue siendo `epa-dim-armonia` (§00). La decisión compartida se incorpora al
+> alcance conceptual de A5; sus ítems específicos están **propuestos y no puntúan**.
 
 **Canal de captura:** conversacional vía WhatsApp (Kapso Business API), en español rioplatense, con persistencia directa como `QuestionnaireResponse`.
 
@@ -587,9 +586,11 @@ z  =  [ rMSSD medio de 7 noches  −  μ(basal) ]  /  σ(basal)
 
 ---
 
-### A5 — Autoeficacia y activación (10 % de A)
+### A5 — Autoeficacia, activación y decisión compartida (10 % de A)
 
-**Métrica:** escala breve de autoeficacia en salud cardiovascular, 6 ítems, escala Likert 1–5, rango 6–30. Instrumento propio de EPA, **pendiente de validación psicométrica** (ver §12.2).
+**Alcance conceptual:** confianza de la paciente en su capacidad para sostener conductas de salud cardiovascular (autoeficacia), su disposición a gestionar activamente su cuidado (activación) y su participación en las decisiones sobre su salud junto a su equipo médico (decisión compartida). Hasta la v1.1 este subcomponente se llamó *Autoeficacia y activación*.
+
+**Métrica:** escala breve de autoeficacia en salud cardiovascular, 6 ítems, escala Likert 1–5, rango 6–30. Instrumento propio de EPA, **pendiente de validación psicométrica** (ver §12.2). **La métrica no cambia en la v1.2:** la decisión compartida forma parte del alcance conceptual de A5, pero hoy no tiene ítems que puntúen.
 
 | Puntaje bruto (6–30) | Puntaje A5 |
 |---|---:|
@@ -601,36 +602,17 @@ z  =  [ rMSSD medio de 7 noches  −  μ(basal) ]  /  σ(basal)
 
 > Se evaluó Patient Activation Measure (PAM-13) como alternativa validada. **Se descartó para v1.0 por costo de licencia por usuario**, incompatible con un modelo freemium a escala. La escala propia debe validarse contra PAM-13 en un submuestreo de MAMA-LE8 antes de reclamar equivalencia en cualquier publicación.
 
----
-
-### A6 — Automanejo y decisión compartida (propuesto · sin ponderar)
-
-**Estado:** propuesto. **No entra en el puntaje de A, ni en EPA-C, ni en las reglas de
-bloqueo.** Pendiente de validación clínica (Comité de Mujer FAC, panel Delphi) y
-psicométrica (§12.2). No se emiten `Observation` de A6 hasta su aprobación.
-
-**Constructo:** capacidad de la paciente para manejar su plan de cuidado y para participar
-en las decisiones sobre su salud junto a su equipo médico.
-
-**Instrumento candidato:** la escala propia de EPA ya prevista en A5, ampliada con ítems de
-decisión compartida a definir por el comité. Hereda la misma condición que A5: **no está
-validada** y debe validarse contra PAM-13 en un submuestreo de MAMA-LE8 antes de reclamar
-equivalencia en cualquier publicación.
+**Ítems de decisión compartida (propuestos · no puntúan).** El comité puede proponer ítems
+que amplíen la escala propia para cubrir la participación en decisiones junto al equipo
+médico. Hasta su validación psicométrica (§12.2) y clínica (Comité de Mujer FAC, panel
+Delphi), esos ítems **no entran en el puntaje de A5, ni en EPA-C, ni en las reglas de
+bloqueo**. Incorporarlos al puntaje cambia el cálculo y exige una nueva versión de la
+especificación **y del motor** (nuevo `meta.tag`), con análisis de impacto como el de §0.
 
 > **PAM-13 no se adopta como instrumento.** Patient Activation Measure es propiedad de
 > Insignia Health y su uso requiere licencia y autorización previa. Esto alcanza también al
 > submuestreo de validación de la escala propia: usar PAM-13 como referencia en MAMA-LE8
 > requiere gestionar esa autorización antes de recolectar datos.
-
-**Pendiente de decisión clínica:**
-
-1. Si A6 es un componente separado o una ampliación de A5 (hoy *Autoeficacia y activación*,
-   10 % de A), dado que ambos miden constructos cercanos.
-2. Si, una vez validado, A6 debe ponderarse. Ponderarlo cambia el cálculo y exige una nueva
-   versión de la especificación **y del motor** (nuevo `meta.tag`), con análisis de impacto
-   como el de §0.
-3. Qué código FHIR recibe. No se asigna en esta versión para no publicar un concepto sin
-   definición aprobada.
 
 ---
 
@@ -1166,10 +1148,10 @@ Una cohorte latinoamericana con datos continuos de variabilidad fisiológica, PR
 3. **Sesgo de acceso a dispositivos.** La dimensión E depende de wearables y monitoreo domiciliario de PA. Esto introduce sesgo socioeconómico sistemático. La redistribución de peso (§7.2) lo mitiga parcialmente pero **no lo elimina**: las pacientes con menos recursos tendrán índices con menor completitud y menor confianza. Esto debe monitorearse activamente como métrica de equidad, no tratarse como ruido.
 4. **Heterogeneidad entre dispositivos.** Oura, Apple Watch y Google Fit difieren en algoritmos de estadificación del sueño y en captura de HRV. El uso de z-score contra basal personal (E3) mitiga esto para HRV pero no para SRI. **Los cambios de dispositivo deben registrarse y romper la serie basal.**
 5. **PSQI tiene restricciones de licencia comercial** (§A3). Debe resolverse antes de producción.
-6. **La escala de autoeficacia (A5) no está validada psicométricamente.**
+6. **La escala de A5 (autoeficacia, activación y decisión compartida) no está validada psicométricamente.**
 7. **Alcance limitado al Grupo C.** Los cortes no son transferibles a Grupos A, B ni D sin recalibración completa.
 8. **Sin validez predictiva establecida.** No se puede afirmar que un Índice EPA más alto se asocie a menos eventos cardiovasculares. Esa afirmación requiere la Etapa 5 y no antes.
-10. **El nombre "Autonomía" excede lo que A mide hoy.** El puntaje de A es un resultado reportado por la paciente; el componente de decisión compartida (A6) está propuesto y no puntúa (§00, §5).
+10. **El nombre "Autonomía" excede lo que A mide hoy.** El puntaje de A es un resultado reportado por la paciente; la decisión compartida está dentro del alcance conceptual de A5, pero sus ítems están propuestos y no puntúan (§00, §5).
 
 ---
 
@@ -1238,7 +1220,7 @@ Una cohorte latinoamericana con datos continuos de variabilidad fisiológica, PR
 |---|---|---|---|
 | 1.0 | Agosto 2026 | Especificación inicial | Dr. A. S. D'Alessandro · Equipo de Producto EPA |
 | 1.1 | Agosto 2026 | Corrección de ponderaciones: 38/32/30 → 36/33/31. Origen del error y análisis de impacto en §0. Atribución CC BY a Choi & Sonin incorporada. | Dr. A. S. D'Alessandro |
-| **1.2** | **Octubre 2026** | **Dimensión A: Armonía → Autonomía; definición ampliada; A6 propuesto sin ponderar. Sin cambios de cálculo, ponderaciones ni códigos; motor sigue en `epa-index-v1.1`. CodeSystem `epa-index` (fragmento) publicado en `fhir/`. Corrección del título (decía v1.0). Ver §00 y `NT-2026-02`.** | **Equipo de Producto EPA — pendiente de conformidad del Dr. A. S. D'Alessandro** |
+| **1.2** | **Octubre 2026** | **Dimensión A: Armonía → Autonomía; definición ampliada; A5 pasa a *Autoeficacia, activación y decisión compartida* (misma métrica y 10 % de A; ítems de decisión compartida propuestos, sin puntuar). Sin cambios de cálculo, ponderaciones ni códigos; motor sigue en `epa-index-v1.1`. CodeSystem `epa-index` (fragmento) publicado en `fhir/`. Corrección del título (decía v1.0). Ver §00 y `NT-2026-02`.** | **Equipo de Producto EPA — pendiente de conformidad del Dr. A. S. D'Alessandro** |
 
 **Aprobaciones requeridas antes de implementación:**
 

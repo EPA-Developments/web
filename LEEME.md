@@ -94,8 +94,10 @@ metodología (v3, nov 2018). No es cortesía: es la licencia.
 
 La dimensión A del Índice EPA se llama **Autonomía** (antes *Armonía*). Es un cambio
 de nombre y de definición, **no de cálculo**: la ponderación (31 %), los ítems A1–A5 y
-la versión del motor (`epa-index-v1.1`) no cambian. El componente de automanejo y
-decisión compartida (A6) está propuesto, sin ponderar y pendiente de validación.
+la versión del motor (`epa-index-v1.1`) no cambian. La decisión compartida se
+incorporó a A5, que pasa a llamarse *Autoeficacia, activación y decisión compartida*
+con la misma métrica y el mismo 10 %; sus ítems específicos están propuestos y no
+puntúan.
 
 Especificación vigente: `INDICE-EPA_SPEC_v1.2` (§00). Motivo y puntos abiertos:
 `NT-2026-02_REDENOMINACION-DIMENSION-A`.
