@@ -36,7 +36,7 @@ exactamente como en la v1.1.
 | Definición operacional | Carga sintomática, calidad de vida y capacidad de acción reportadas por la propia paciente, mediante instrumentos validados | Lo mismo, **como base para que decida sobre su salud junto a su equipo médico** (automanejo y decisión compartida) |
 | Frase de síntesis | "Armonía es lo que la mujer siente." | "Autonomía es lo que la mujer siente y decide, junto a su equipo médico." |
 | `display` FHIR del código `epa-dim-armonia` | No había recurso `CodeSystem` publicado | **"Autonomía"**, con el nombre anterior como `designation` |
-| Componente de automanejo y decisión compartida | No existía | **A6, propuesto, sin ponderar** (§4) |
+| Subcomponente A5 | Autoeficacia y activación | **Autoeficacia, activación y decisión compartida**: misma métrica y mismo peso; se amplía el alcance conceptual (§4) |
 | Título del documento de especificación | Decía "v1.0" aunque el documento era la v1.1 | Corregido: "v1.2" |
 
 ## 2. Qué NO cambia
@@ -44,7 +44,7 @@ exactamente como en la v1.1.
 | Elemento | Estado |
 |---|---|
 | Ponderación de A | **31 %** |
-| A1 MRS (30 %) · A2 VMS (25 %) · A3 PSQI (20 %) · A4 PHQ-9 + GAD-7 (15 %) · A5 Autoeficacia (10 %) | Mismos instrumentos, pesos y tablas de corte |
+| A1 MRS (30 %) · A2 VMS (25 %) · A3 PSQI (20 %) · A4 PHQ-9 + GAD-7 (15 %) · A5 Autoeficacia, activación y decisión compartida (10 %) | Mismos instrumentos, pesos y tablas de corte. A5 cambia de nombre, no de métrica |
 | Fórmula del índice, Δ-EPA, completitud EPA-C, reglas de bloqueo | Sin cambios |
 | Reglas de seguridad clínica (§8, incluida la del ítem 9 del PHQ-9) | Sin cambios |
 | Códigos `epa-dim-armonia` y `epa-bot-armonia` | **No se renombran** |
@@ -72,15 +72,21 @@ pacientes que reevaluar.
 - **La dimensión ya tenía el germen.** A5 (autoeficacia y activación) y la definición
   operacional ("capacidad de acción") ya apuntaban en esta dirección.
 
-## 4. Componente propuesto: A6 — Automanejo y decisión compartida
+## 4. Decisión compartida dentro de A5
+
+En un borrador previo de esta nota, la decisión compartida figuraba como un subcomponente
+nuevo y separado. **Se resolvió fusionarla dentro de A5**, que mide constructos cercanos
+(autoeficacia y activación), para no duplicar mediciones ni abrir una discusión de pesos.
 
 | Aspecto | Definición |
 |---|---|
-| Estado | **Propuesto. Sin ponderar. Pendiente de validación clínica y psicométrica.** No entra en el puntaje de A, ni en EPA-C, ni en las reglas de bloqueo. No se emiten `Observation`. |
-| Constructo | Capacidad de la paciente para manejar su plan de cuidado y participar en las decisiones sobre su salud junto a su equipo médico |
-| Instrumento candidato | La escala propia de EPA ya prevista en A5, ampliada con ítems de decisión compartida a definir por el comité |
-| Validación | La misma que ya exige A5: psicométrica (§12.2) y contra PAM-13 en un submuestreo de MAMA-LE8. **Hoy la escala propia no está validada.** |
-| Código FHIR | No se asigna hasta que exista una definición aprobada |
+| Nombre | **A5 — Autoeficacia, activación y decisión compartida** (antes *Autoeficacia y activación*) |
+| Peso | **10 % de A**, sin cambios |
+| Métrica | La escala propia de EPA de 6 ítems, sin cambios. **El cálculo no cambia** |
+| Alcance conceptual | Suma la participación de la paciente en las decisiones sobre su salud junto a su equipo médico |
+| Ítems de decisión compartida | **Propuestos, no puntúan, pendientes de validación psicométrica y clínica.** Incorporarlos al puntaje exige nueva versión de la especificación y del motor |
+| Validación de la escala | La que ya exigía A5: psicométrica (§12.2) y contra PAM-13 en un submuestreo de MAMA-LE8. **Hoy la escala propia no está validada** |
+| Código FHIR | `epa-selfefficacy`, sin cambios |
 
 **Sobre PAM-13.** No se adopta como instrumento del índice. Patient Activation Measure es
 propiedad de **Insignia Health** y su uso requiere licencia y autorización previa. Esto vale
@@ -114,8 +120,9 @@ gestionar la autorización antes de recolectar datos.
 
 1. ¿Está de acuerdo con la nueva definición operacional de A, o prefiere que la v1.2 la
    deje igual a la v1.1 y que "Autonomía" quede solo como nombre?
-2. ¿A6 debe ser un componente separado o una ampliación de A5? Ambos miden constructos
-   cercanos (activación, autoeficacia, participación en decisiones).
+2. ~~¿La decisión compartida va como componente separado o dentro de A5?~~ **Resuelto:
+   se fusiona dentro de A5** (§4). Queda pendiente su conformidad con los ítems de decisión
+   compartida que se propongan.
 3. Riesgo de comunicación: el nombre "Autonomía" promete más de lo que A mide hoy, que son
    resultados reportados por la paciente. ¿Alcanza con la advertencia de §00 de la
    especificación, o conviene revisar los textos para pacientes?
@@ -125,8 +132,9 @@ gestionar la autorización antes de recolectar datos.
 1. La correspondencia de A con los determinantes *Circunstancias sociales* (24 %) y
    *Ambiente físico* (7 %) ya era de alineación conceptual. ¿El nuevo nombre la debilita al
    punto de tener que declararlo en publicaciones?
-2. Si A6 llega a ponderarse, ¿se recalibra dentro del 31 % de A o se reabre el reparto
-   entre dimensiones? Cualquiera de las dos opciones exige nueva versión del motor.
+2. Si los ítems de decisión compartida se validan e incorporan al puntaje de A5, ¿alcanza
+   con recalibrar los cortes de A5 dentro de su 10 %, o conviene revisar el peso de A5
+   dentro de A? Cualquiera de las dos opciones exige nueva versión del motor.
 
 ---
 
@@ -141,7 +149,7 @@ gestionar la autorización antes de recolectar datos.
 | Especificación en DOCX / PDF | ⏳ Pendiente: regenerar desde la v1.2 |
 | CodeSystem cargado en FAVALORO | ⏳ Pendiente |
 | `display` en el motor de scoring | ⏳ Pendiente de revisión |
-| Validación de A6 | ⏳ Pendiente: sujeta a los puntos de §6 |
+| Validación de la escala de A5 (incluidos los ítems de decisión compartida y la referencia PAM-13) | ⏳ Pendiente: sujeta a los puntos de §6 |
 
 ---
 
