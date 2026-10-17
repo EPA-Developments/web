@@ -1,0 +1,43 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "epa-index",
+  "language": "es-AR",
+  "url": "https://epa-bienestar.com.ar/fhir/CodeSystem/epa-index",
+  "version": "1.2",
+  "name": "EPAIndex",
+  "title": "Índice EPA — códigos del índice (fragmento: dimensiones)",
+  "status": "draft",
+  "date": "2026-10-17",
+  "publisher": "EPA Bienestar IA",
+  "description": "Códigos del Índice EPA de salud cardiovascular femenina en la transición menopáusica. Este recurso es un fragmento: contiene solo las tres dimensiones del índice (E, P, A). Fuente: INDICE-EPA_SPEC_v1.2, §2, §3, §4, §5 y §10.",
+  "caseSensitive": true,
+  "content": "fragment",
+  "concept": [
+    {
+      "code": "epa-dim-equilibrio",
+      "display": "Equilibrio",
+      "definition": "Dimensión E del Índice EPA (36 %). Grado de estabilidad fisiológica de la paciente a lo largo del tiempo, medido como dispersión y deriva, no como nivel absoluto."
+    },
+    {
+      "code": "epa-dim-precision",
+      "display": "Precisión",
+      "definition": "Dimensión P del Índice EPA (33 %). Profundidad y calidad de la estratificación de riesgo cardiovascular estructural de la paciente."
+    },
+    {
+      "code": "epa-dim-armonia",
+      "display": "Autonomía",
+      "definition": "Dimensión A del Índice EPA (31 %). Carga sintomática, calidad de vida y capacidad de acción reportadas por la propia paciente, mediante instrumentos validados, como base para que decida sobre su salud junto a su equipo médico (automanejo y decisión compartida). Hasta la v1.1 de la especificación se denominó «Armonía»; el código se conserva para no invalidar recursos existentes.",
+      "designation": [
+        {
+          "language": "es-AR",
+          "use": {
+            "system": "http://snomed.info/sct",
+            "code": "900000000000013009",
+            "display": "Synonym"
+          },
+          "value": "Armonía"
+        }
+      ]
+    }
+  ]
+}
