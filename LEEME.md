@@ -6,8 +6,10 @@ Subí todo el contenido de esta carpeta a la raíz del sitio. Son archivos
 estáticos: no hace falta build step ni servidor de aplicaciones.
 
 **Importante:** copiá tu carpeta `assets/img/` actual dentro de `assets/`.
-No la incluimos acá para no pisar tus imágenes existentes. El sitio espera
-al menos `logo.png`, `favicon.ico` y `8pasos_AHA.jpg`.
+El repo trae solo la marca —`logo.svg` (piedras + «EPA», original vectorial),
+`logo.png` (486×512, fondo transparente) y `favicon.ico` (16/32/48, solo
+piedras: a ese tamaño el texto no se lee)—; el resto de las imágenes no, para
+no pisar las existentes. Falta todavía `8pasos_AHA.jpg`.
 
 ## Estructura
 

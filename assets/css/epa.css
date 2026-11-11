@@ -172,7 +172,7 @@ img { max-width: 100%; display: block; }
 .hdr-in { display: flex; align-items: center; gap: 26px; height: 68px; }
 
 .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; flex: none; }
-.brand img { width: 32px; height: 32px; object-fit: contain; }
+.brand img { width: auto; height: 46px; object-fit: contain; }   /* logo con «EPA» abajo: se lee desde ~44 px */
 .brand-tx { display: flex; flex-direction: column; line-height: 1.05; }
 .brand-tx b { font-family: var(--f-display); font-weight: 800; font-size: 1.02rem; letter-spacing: -.03em; }
 .brand-tx span {
@@ -458,7 +458,7 @@ svg .ax-t { fill: var(--muted); font-family: var(--f-mono); font-size: 9.5px; le
 .ft address { font-style: normal; font-size: .9rem; color: var(--ink-2); line-height: 1.75; }
 
 .ft-brand { display: flex; align-items: center; gap: 11px; margin-bottom: 16px; }
-.ft-brand img { width: 34px; height: 34px; }
+.ft-brand img { width: auto; height: 54px; }
 .ft-tag { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--teal); }
 
 .status { display: inline-flex; align-items: center; gap: 9px; font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; color: var(--muted); margin-top: 18px; }
@@ -466,6 +466,8 @@ svg .ax-t { fill: var(--muted); font-family: var(--f-mono); font-size: 9.5px; le
 
 .ft-bot { border-top: 1px solid var(--line-soft); padding-top: 26px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
 .ft-bot .cr { font-size: .82rem; color: var(--muted); }
+.ft-bot .cr a { font-size: inherit; color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.ft-bot .cr a:hover { color: var(--teal); }
 .socials { display: flex; gap: 8px; }
 .socials a { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; color: var(--muted); transition: all .15s; }
 .socials a:hover { border-color: var(--teal); color: var(--teal); }
@@ -517,6 +519,7 @@ svg .ax-t { fill: var(--muted); font-family: var(--f-mono); font-size: 9.5px; le
   .burger { display: grid; place-items: center; }
   .hdr-act .btn-solid { display: none; }
   .brand-tx span { font-size: 8px; letter-spacing: .13em; }
+  .brand img { height: 40px; }
   .band { padding: 68px 0; }
   .head { margin-bottom: 38px; }
   .gap-grid, .dims, .svc, .news, .std, .grp, .team { grid-template-columns: 1fr; }
