@@ -466,6 +466,8 @@ svg .ax-t { fill: var(--muted); font-family: var(--f-mono); font-size: 9.5px; le
 
 .ft-bot { border-top: 1px solid var(--line-soft); padding-top: 26px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
 .ft-bot .cr { font-size: .82rem; color: var(--muted); }
+.ft-bot .cr a { font-size: inherit; color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.ft-bot .cr a:hover { color: var(--teal); }
 .socials { display: flex; gap: 8px; }
 .socials a { width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; color: var(--muted); transition: all .15s; }
 .socials a:hover { border-color: var(--teal); color: var(--teal); }
